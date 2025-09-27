@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>早稲田AI研究会 | Waseda AI Research Club</title>
+  <meta name="description" content="早稲田AI研究会の公式サイト。活動内容、プロジェクト、参加方法、イベント情報。" />
+  <meta property="og:title" content="早稲田AI研究会" />
+  <meta property="og:description" content="早稲田AI研究会の公式サイト。活動内容、プロジェクト、参加方法、イベント情報。" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://dummyimage.com/1200x630/111827/ffffff&text=Waseda+AI" />
+  <meta name="theme-color" content="#111827" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: { 500:'#ef4444', 600:'#dc2626', 700:'#b91c1c' },
+          },
+        },
+      },
+    }
+  </script>
+  <style>
+    .fade-in { animation: fadeIn .6s ease both; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } }
+  </style>
+</head>
+<body class="bg-white text-gray-900 antialiased">
+  <!-- ヘッダー -->
+  <header class="sticky top-0 z-50 bg-white/80 backdrop-blur border-b border-gray-100">
+    <div class="mx-auto max-w-6xl px-4">
+      <div class="flex h-16 items-center justify-between">
+        <a href="index.html" class="flex items-center gap-2 font-semibold">
+          <img src="wasedaai-logo.png" alt="WasedaAI Logo" class="h-8 w-8" />
+          <span>早稲田AI研究会</span>
+        </a>
+        <nav class="hidden md:flex items-center gap-6 text-sm">
+          <a href="about.html" class="hover:text-brand-600">概要</a>
+          <a href="highlights.html" class="hover:text-brand-600">現在の活動</a>
+          <a href="projects.html" class="hover:text-brand-600">プロジェクト</a>
+          <a href="reports.html" class="hover:text-brand-600">活動報告</a>
+          <a href="events.html" class="hover:text-brand-600">イベント</a>
+          <a href="join.html" class="hover:text-brand-600">参加方法</a>
+          <a href="contact.html" class="hover:text-brand-600">お問い合わせ</a>
+        </nav>
+        <button id="menuBtn" class="md:hidden inline-flex items-center justify-center p-2 rounded-lg border border-gray-200">
+          <span class="sr-only">Open menu</span>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+      <!-- モバイルメニュー -->
+      <div id="mobileMenu" class="md:hidden hidden pb-4">
+        <div class="flex flex-col gap-3 text-sm">
+          <a href="about.html" class="px-2 py-2 rounded hover:bg-gray-50">概要</a>
+          <a href="highlights.html" class="px-2 py-2 rounded hover:bg-gray-50">現在の活動</a>
+          <a href="projects.html" class="px-2 py-2 rounded hover:bg-gray-50">プロジェクト</a>
+          <a href="reports.html" class="px-2 py-2 rounded hover:bg-gray-50">活動報告</a>
+          <a href="events.html" class="px-2 py-2 rounded hover:bg-gray-50">イベント</a>
+          <a href="join.html" class="px-2 py-2 rounded hover:bg-gray-50">参加方法</a>
+          <a href="contact.html" class="px-2 py-2 rounded hover:bg-gray-50">お問い合わせ</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ヒーロー -->
+  <section class="bg-gray-50 border-b border-gray-100">
+    <div class="mx-auto max-w-6xl px-4 py-16 md:py-24">
+      <div class="max-w-3xl fade-in">
+        <h1 class="text-3xl md:text-5xl font-extrabold leading-tight">
+          AIで時代を切り開く
+          <span class="block text-brand-600">早稲田AI研究会</span>
+        </h1>
+        <p class="mt-5 text-base md:text-lg text-gray-600">
+          早稲田大学生によるAIコミュニティ。LLM、生成AI、社会実装まで、
+          AIに関することを深く広く学びます。
+        </p>
+        <div class="mt-6 flex flex-wrap gap-3">
+          <a href="join.html" class="inline-flex items-center justify-center rounded-xl bg-brand-600 px-5 py-3 text-white font-semibold shadow hover:bg-brand-700">参加する</a>
+          <a href="projects.html" class="inline-flex items-center justify-center rounded-xl border border-gray-300 px-5 py-3 font-semibold hover:bg-gray-100">プロジェクトを見る</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="border-t border-gray-200">
+    <div class="mx-auto max-w-6xl px-4 py-8 text-sm text-gray-600">
+      <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+        <p>© <span id="year"></span> 早稲田AI研究会</p>
+        <nav class="flex gap-4">
+          <a href="#" class="hover:underline">利用規約</a>
+          <a href="#" class="hover:underline">プライバシー</a>
+          <a href="contact.html" class="hover:underline">お問い合わせ</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const btn = document.getElementById('menuBtn');
+    const menu = document.getElementById('mobileMenu');
+    btn?.addEventListener('click', () => menu.classList.toggle('hidden'));
+  </script>
+</body>
+</html>
+
