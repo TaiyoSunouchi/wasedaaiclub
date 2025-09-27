@@ -15,9 +15,7 @@
     tailwind.config = {
       theme: {
         extend: {
-          colors: {
-            brand: { 500:'#ef4444', 600:'#dc2626', 700:'#b91c1c' },
-          },
+          colors: { brand: { 500:'#ef4444', 600:'#dc2626', 700:'#b91c1c' } },
         },
       },
     }
@@ -32,18 +30,18 @@
   <header class="sticky top-0 z-50 bg-white/80 backdrop-blur border-b border-gray-100">
     <div class="mx-auto max-w-6xl px-4">
       <div class="flex h-16 items-center justify-between">
-        <a href="index.html" class="flex items-center gap-2 font-semibold">
+        <a href="#" class="flex items-center gap-2 font-semibold">
           <img src="wasedaai-logo.png" alt="WasedaAI Logo" class="h-8 w-8" />
           <span>早稲田AI研究会</span>
         </a>
         <nav class="hidden md:flex items-center gap-6 text-sm">
-          <a href="about.html" class="hover:text-brand-600">概要</a>
-          <a href="highlights.html" class="hover:text-brand-600">現在の活動</a>
-          <a href="projects.html" class="hover:text-brand-600">プロジェクト</a>
-          <a href="reports.html" class="hover:text-brand-600">活動報告</a>
-          <a href="events.html" class="hover:text-brand-600">イベント</a>
-          <a href="join.html" class="hover:text-brand-600">参加方法</a>
-          <a href="contact.html" class="hover:text-brand-600">お問い合わせ</a>
+          <a href="#about" class="hover:text-brand-600">概要</a>
+          <a href="#highlights" class="hover:text-brand-600">主な活動</a>
+          <a href="#projects" class="hover:text-brand-600">プロジェクト</a>
+          <a href="#reports" class="hover:text-brand-600">活動報告</a>
+          <a href="#events" class="hover:text-brand-600">イベント</a>
+          <a href="#join" class="hover:text-brand-600">参加方法</a>
+          <a href="#contact" class="hover:text-brand-600">お問い合わせ</a>
         </nav>
         <button id="menuBtn" class="md:hidden inline-flex items-center justify-center p-2 rounded-lg border border-gray-200">
           <span class="sr-only">Open menu</span>
@@ -53,19 +51,19 @@
       <!-- モバイルメニュー -->
       <div id="mobileMenu" class="md:hidden hidden pb-4">
         <div class="flex flex-col gap-3 text-sm">
-          <a href="about.html" class="px-2 py-2 rounded hover:bg-gray-50">概要</a>
-          <a href="highlights.html" class="px-2 py-2 rounded hover:bg-gray-50">現在の活動</a>
-          <a href="projects.html" class="px-2 py-2 rounded hover:bg-gray-50">プロジェクト</a>
-          <a href="reports.html" class="px-2 py-2 rounded hover:bg-gray-50">活動報告</a>
-          <a href="events.html" class="px-2 py-2 rounded hover:bg-gray-50">イベント</a>
-          <a href="join.html" class="px-2 py-2 rounded hover:bg-gray-50">参加方法</a>
-          <a href="contact.html" class="px-2 py-2 rounded hover:bg-gray-50">お問い合わせ</a>
+          <a href="#about" class="px-2 py-2 rounded hover:bg-gray-50">概要</a>
+          <a href="#highlights" class="px-2 py-2 rounded hover:bg-gray-50">主な活動</a>
+          <a href="#projects" class="px-2 py-2 rounded hover:bg-gray-50">プロジェクト</a>
+          <a href="#reports" class="px-2 py-2 rounded hover:bg-gray-50">活動報告</a>
+          <a href="#events" class="px-2 py-2 rounded hover:bg-gray-50">イベント</a>
+          <a href="#join" class="px-2 py-2 rounded hover:bg-gray-50">参加方法</a>
+          <a href="#contact" class="px-2 py-2 rounded hover:bg-gray-50">お問い合わせ</a>
         </div>
       </div>
     </div>
   </header>
 
-  <!-- ヒーロー -->
+  <!-- ヒーロー（左側のみ表示） -->
   <section class="bg-gray-50 border-b border-gray-100">
     <div class="mx-auto max-w-6xl px-4 py-16 md:py-24">
       <div class="max-w-3xl fade-in">
@@ -78,13 +76,152 @@
           AIに関することを深く広く学びます。
         </p>
         <div class="mt-6 flex flex-wrap gap-3">
-          <a href="join.html" class="inline-flex items-center justify-center rounded-xl bg-brand-600 px-5 py-3 text-white font-semibold shadow hover:bg-brand-700">参加する</a>
-          <a href="projects.html" class="inline-flex items-center justify-center rounded-xl border border-gray-300 px-5 py-3 font-semibold hover:bg-gray-100">プロジェクトを見る</a>
+          <a href="#join" class="inline-flex items-center justify-center rounded-xl bg-brand-600 px-5 py-3 text-white font-semibold shadow hover:bg-brand-700">参加する</a>
+          <a href="#projects" class="inline-flex items-center justify-center rounded-xl border border-gray-300 px-5 py-3 font-semibold hover:bg-gray-100">プロジェクトを見る</a>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- 主な活動（元ヒーロー右カードをここへ） -->
+  <section id="highlights" class="mx-auto max-w-6xl px-4 py-12 md:py-16">
+    <h2 class="text-2xl md:text-3xl font-bold">現在の主な活動</h2>
+    <div class="mt-6 rounded-2xl bg-gradient-to-br from-brand-600 to-gray-900 text-white p-6 sm:p-8 shadow-lg">
+      <ul class="space-y-2 text-sm md:text-base">
+        <li>・WasedaAI（履修相談アシスタント）の開発</li>
+        <li>・学内外向けハッカソン／LT会の開催</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 概要 -->
+  <section id="about" class="mx-auto max-w-6xl px-4 py-16">
+    <h2 class="text-2xl md:text-3xl font-bold">研究会の概要</h2>
+    <p class="mt-4 text-gray-700 leading-relaxed max-w-3xl">
+      早稲田AI研究会は、AI/機械学習に興味のある学生が集まり、
+      勉強会・読書会・実装会・プロジェクト開発を通じてスキルを伸ばすコミュニティです。
+      文理不問・初心者歓迎です。
+    </p>
+    <div class="mt-8 grid gap-6 md:grid-cols-3">
+      <div class="rounded-2xl border border-gray-200 p-6"><h3 class="font-semibold">学ぶ</h3><p class="mt-2 text-sm text-gray-600">線形代数・微積・確率統計から、Python/LLMまで段階的に。</p></div>
+      <div class="rounded-2xl border border-gray-200 p-6"><h3 class="font-semibold">つくる</h3><p class="mt-2 text-sm text-gray-600">身近な課題を題材にアプリやツールを開発。Hack→Shipまで。</p></div>
+      <div class="rounded-2xl border border-gray-200 p-6"><h3 class="font-semibold">共有する</h3><p class="mt-2 text-sm text-gray-600">LT会・記事・GitHubで知見を公開し、仲間を増やす。</p></div>
+    </div>
+  </section>
+
+  <!-- プロジェクト -->
+  <section id="projects" class="bg-gray-50">
+    <div class="mx-auto max-w-6xl px-4 py-16">
+      <h2 class="text-2xl md:text-3xl font-bold">プロジェクト</h2>
+      <div class="mt-8 grid gap-6 md:grid-cols-3">
+        <article class="rounded-2xl border border-gray-200 bg-white p-6">
+          <h3 class="font-semibold">WasedaAI（履修相談）</h3>
+          <p class="mt-2 text-sm text-gray-600">シラバスや教員情報を活用して履修相談に答える学内向けAI。</p>
+          <a href="#" class="mt-3 inline-flex text-sm font-semibold text-brand-700 hover:underline">詳しく</a>
+        </article>
+        <article class="rounded-2xl border border-gray-200 bg-white p-6">
+          <h3 class="font-semibold">Law × LLM</h3>
+          <p class="mt-2 text-sm text-gray-600">法情報の検索・要約・根拠提示を目指すRAGシステムの研究。</p>
+          <a href="#" class="mt-3 inline-flex text-sm font-semibold text-brand-700 hover:underline">詳しく</a>
+        </article>
+        <article class="rounded-2xl border border-gray-200 bg-white p-6">
+          <h3 class="font-semibold">AI勉強会</h3>
+          <p class="mt-2 text-sm text-gray-600">G検定/E資格や深層学習の輪読・Kaggleミニ講座など。</p>
+          <a href="#" class="mt-3 inline-flex text-sm font-semibold text-brand-700 hover:underline">詳しく</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 活動報告（新設） -->
+  <section id="reports" class="mx-auto max-w-6xl px-4 py-16">
+    <h2 class="text-2xl md:text-3xl font-bold">活動報告</h2>
+    <div class="mt-8 grid gap-6 md:grid-cols-3">
+      <article class="rounded-2xl border border-gray-200 p-6">
+        <p class="text-xs text-gray-500">2025/09/15</p>
+        <h3 class="mt-1 font-semibold">第1回 LLM入門ハンズオンを開催</h3>
+        <p class="mt-2 text-sm text-gray-600">基礎プロンプトからRAGまでを体験。参加者20名。</p>
+        <a href="#" class="mt-3 inline-flex text-sm font-semibold text-brand-700 hover:underline">レポート</a>
+      </article>
+      <article class="rounded-2xl border border-gray-200 p-6">
+        <p class="text-xs text-gray-500">2025/08/30</p>
+        <h3 class="mt-1 font-semibold">学内LT会：AI×法の最前線</h3>
+        <p class="mt-2 text-sm text-gray-600">判例検索や要約の実験結果を共有。発表6本。</p>
+        <a href="#" class="mt-3 inline-flex text-sm font-semibold text-brand-700 hover:underline">レポート</a>
+      </article>
+      <article class="rounded-2xl border border-gray-200 p-6">
+        <p class="text-xs text-gray-500">2025/07/20</p>
+        <h3 class="mt-1 font-semibold">WasedaAI α版を公開</h3>
+        <p class="mt-2 text-sm text-gray-600">履修相談の一部機能を学内テストとして試行。</p>
+        <a href="#" class="mt-3 inline-flex text-sm font-semibold text-brand-700 hover:underline">レポート</a>
+      </article>
+    </div>
+  </section>
+
+  <!-- イベント -->
+  <section id="events" class="bg-gray-50">
+    <div class="mx-auto max-w-6xl px-4 py-16">
+      <h2 class="text-2xl md:text-3xl font-bold">イベント</h2>
+      <ul class="mt-6 space-y-4">
+        <li class="rounded-2xl border border-gray-200 p-5 bg-white">
+          <div class="flex items-center justify-between">
+            <div>
+              <p class="font-semibold">10月定例：LLM入門＆ハンズオン</p>
+              <p class="text-sm text-gray-600">2025/10/12 (日) 13:00-16:00 @ 早稲田キャンパス</p>
+            </div>
+            <a href="#join" class="inline-flex rounded-lg border px-3 py-2 text-sm font-semibold hover:bg-gray-50">参加登録</a>
+          </div>
+        </li>
+        <li class="rounded-2xl border border-gray-200 p-5 bg-white">
+          <div class="flex items-center justify-between">
+            <div>
+              <p class="font-semibold">LT会：AI×法 × 起業</p>
+              <p class="text-sm text-gray-600">2025/11/09 (日) 15:00-17:00 @ オンライン</p>
+            </div>
+            <a href="#join" class="inline-flex rounded-lg border px-3 py-2 text-sm font-semibold hover:bg-gray-50">参加登録</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 参加方法 -->
+  <section id="join" class="mx-auto max-w-6xl px-4 py-16">
+    <h2 class="text-2xl md:text-3xl font-bold">参加方法</h2>
+    <ol class="mt-4 list-decimal list-inside space-y-2 text-gray-700 max-w-3xl">
+      <li>興味のある活動分野を決める（LLM / 法×AI / Web開発 など）</li>
+      <li>フォームから参加申請（下の「お問い合わせ」でもOK）</li>
+      <li>オンボーディング資料を読み、初回ミーティングに参加</li>
+    </ol>
+    <div class="mt-6 rounded-2xl border border-gray-200 bg-white p-6">
+      <p class="text-sm text-gray-600">※ 初心者歓迎。週1〜隔週のゆるやかな進行。授業優先でOK。</p>
+    </div>
+  </section>
+
+  <!-- お問い合わせ（デモ） -->
+  <section id="contact" class="bg-gray-50">
+    <div class="mx-auto max-w-6xl px-4 py-16">
+      <h2 class="text-2xl md:text-3xl font-bold">お問い合わせ</h2>
+      <form class="mt-6 grid gap-4 md:max-w-xl">
+        <div>
+          <label class="block text-sm font-medium">お名前</label>
+          <input type="text" class="mt-1 w-full rounded-lg border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-brand-500" placeholder="早稲田 太郎" />
+        </div>
+        <div>
+          <label class="block text-sm font-medium">メールアドレス</label>
+          <input type="email" class="mt-1 w-full rounded-lg border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-brand-500" placeholder="example@ruri.waseda.jp" />
+        </div>
+        <div>
+          <label class="block text-sm font-medium">内容</label>
+          <textarea rows="4" class="mt-1 w-full rounded-lg border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-brand-500" placeholder="問い合わせ内容をお書きください"></textarea>
+        </div>
+        <button type="button" class="rounded-xl bg-brand-600 px-5 py-3 text-white font-semibold hover:bg-brand-700">送信（デモ）</button>
+        <p class="text-xs text-gray-500">※ 実運用はGoogleフォーム等に置き換えてください。</p>
+      </form>
+    </div>
+  </section>
+
+  <!-- フッター -->
   <footer class="border-t border-gray-200">
     <div class="mx-auto max-w-6xl px-4 py-8 text-sm text-gray-600">
       <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
@@ -92,13 +229,14 @@
         <nav class="flex gap-4">
           <a href="#" class="hover:underline">利用規約</a>
           <a href="#" class="hover:underline">プライバシー</a>
-          <a href="contact.html" class="hover:underline">お問い合わせ</a>
+          <a href="#contact" class="hover:underline">お問い合わせ</a>
         </nav>
       </div>
     </div>
   </footer>
 
   <script>
+    // 年号更新 & モバイルメニュー
     document.getElementById('year').textContent = new Date().getFullYear();
     const btn = document.getElementById('menuBtn');
     const menu = document.getElementById('mobileMenu');
@@ -106,4 +244,3 @@
   </script>
 </body>
 </html>
-
