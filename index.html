@@ -4,222 +4,540 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>早稲田AI研究会 | Waseda AI Research Club</title>
-  <meta name="description" content="早稲田AI研究会の公式サイト。活動内容、プロジェクト、参加方法、イベント情報。" />
+  <meta name="description" content="早稲田AI研究会の公式サイト。活動内容、開催予定のイベント、活動報告、お問い合わせ。" />
   <meta property="og:title" content="早稲田AI研究会" />
-  <meta property="og:description" content="早稲田AI研究会の公式サイト。活動内容、プロジェクト、参加方法、イベント情報。" />
+  <meta property="og:description" content="早稲田AI研究会の公式サイト。活動内容、開催予定のイベント、活動報告、お問い合わせ。" />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://dummyimage.com/1200x630/111827/ffffff&text=Waseda+AI" />
   <meta name="theme-color" content="#111827" />
+
+  <!-- Fonts (smart IT-company vibe) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Inter (Latin) + Noto Sans JP (Japanese) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       theme: {
         extend: {
-          colors: { brand: { 500:'#ef4444', 600:'#dc2626', 700:'#b91c1c' } },
+          fontFamily: {
+            sans: ['Inter', 'Noto Sans JP', 'system-ui', 'ui-sans-serif', 'Apple Color Emoji'],
+          },
+          /* 基調色：オレンジ×青 */
+          colors: {
+            brand:  { 500:'#fb923c', 600:'#f97316', 700:'#ea580c' },   /* Orange */
+            accent: { 500:'#3b82f6', 600:'#2563eb', 700:'#1d4ed8' },   /* Blue */
+          },
+          boxShadow: {
+            soft: '0 8px 24px rgba(17,24,39,.08)',
+            glowO: '0 8px 30px rgba(234,88,12,.35)',
+            glowB: '0 8px 30px rgba(29,78,216,.35)',
+          },
         },
       },
     }
   </script>
+
   <style>
     .fade-in { animation: fadeIn .6s ease both; }
-    @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } }
+    /* animated gradient brand text */
+    .brand-gradient {
+      background: linear-gradient(90deg, #3b82f6, #22d3ee, #fb923c, #f97316, #1d4ed8);
+      background-size: 200% 200%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      animation: shift 8s ease-in-out infinite;
+    }
+    @keyframes shift { 0% {background-position: 0% 50%} 50% {background-position: 100% 50%} 100% {background-position: 0% 50%} }
+
+    /* reveal on scroll */
+    .reveal { opacity: 0; transform: translateY(12px); transition: opacity .6s ease, transform .6s ease; }
+    .reveal.show { opacity: 1; transform: translateY(0); }
+
+    /* glass card */
+    .glass {
+      background: rgba(255,255,255,.75);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(148,163,184,.25);
+    }
+
+    /* link underline nicer */
+    .link-underline { background-image: linear-gradient(currentColor,currentColor); background-size: 0% 2px; background-position: 0 100%; background-repeat: no-repeat; transition: background-size .3s; }
+    .link-underline:hover { background-size: 100% 2px; }
+
+    /* ===== ▼ スクロール演出（機能や内容は一切変更せず、見た目だけ追加） ▼ ===== */
+    .sa-base { opacity: 0; transform: translateY(18px) scale(.98); transition: opacity .7s ease, transform .7s cubic-bezier(.22,.61,.36,1); will-change: transform, opacity; }
+    .sa-in    { opacity: 1; transform: translateY(0) scale(1); }
+    .sa-x-left  { transform: translateX(-24px); }
+    .sa-x-right { transform: translateX(24px); }
+    .sa-y       { transform: translateY(18px); }
+    .sa-pop     { transform: translateY(10px) scale(.96); }
+    .sa-pop.sa-in { transform: translateY(0) scale(1); }
+    [data-sa-delay="1"] { transition-delay: .06s; }
+    [data-sa-delay="2"] { transition-delay: .12s; }
+    [data-sa-delay="3"] { transition-delay: .18s; }
+    [data-sa-delay="4"] { transition-delay: .24s; }
+    [data-sa-delay="5"] { transition-delay: .30s; }
+    .parallax { transform: translateY(0); will-change: transform; transition: transform .1s linear; }
+    /* ===== ▲ スクロール演出 ▲ ===== */
+
+    /* ===== ▼ 追加：ご要望の2点の見た目調整（機能は不変） ▼ ===== */
+    /* ① #about と #highlights の左右余白を他セクションと完全一致に（左端の見切れ解消） */
+    #about, #highlights {
+      padding-left: 1.25rem;  /* = Tailwind の px-5 相当で少し右へ */
+      padding-right: 1.25rem;
+    }
+    @media (min-width: 640px) {
+      #about, #highlights { padding-left: 1.5rem; padding-right: 1.5rem; } /* sm:px-6 相当 */
+    }
+
+    /* ② ヘッダー左上ロゴに上下左右の余白を付与（はみ出し感を解消） */
+    header img[alt="Waseda AI Research Club logo"] {
+      height: 5rem;            /* もとの 5.5rem より少し低く */
+      padding: 0.25rem;        /* 上下左右に余白 */
+      margin: 0.125rem;        /* ヘッダー枠との距離に微小の余白 */
+      box-sizing: content-box; /* 画像の見た目サイズにだけパディングを加える */
+    }
+    @media (min-width: 768px) {
+      header img[alt="Waseda AI Research Club logo"] { height: 6rem; } /* md: 6.5rem → 少し余裕 */
+    }
+    /* ===== ▲ 追加ここまで ▲ ===== */
   </style>
 </head>
+
 <body class="bg-white text-gray-900 antialiased">
-  <!-- ヘッダー -->
-  <header class="sticky top-0 z-50 bg-white/80 backdrop-blur border-b border-gray-100">
-    <div class="mx-auto max-w-6xl px-4">
-      <div class="flex h-16 items-center justify-between">
-        <a href="#" class="flex items-center gap-2 font-semibold">
-          <img src="wasedaai-logo.png" alt="WasedaAI Logo" class="h-8 w-8" />
-          <span>早稲田AI研究会</span>
-        </a>
-        <nav class="hidden md:flex items-center gap-6 text-sm">
-          <a href="#about" class="hover:text-brand-600">概要</a>
-          <a href="#highlights" class="hover:text-brand-600">主な活動</a>
-          <a href="#projects" class="hover:text-brand-600">プロジェクト</a>
-          <a href="#reports" class="hover:text-brand-600">活動報告</a>
-          <a href="#events" class="hover:text-brand-600">イベント</a>
-          <a href="#join" class="hover:text-brand-600">参加方法</a>
-          <a href="#contact" class="hover:text-brand-600">お問い合わせ</a>
-        </nav>
-        <button id="menuBtn" class="md:hidden inline-flex items-center justify-center p-2 rounded-lg border border-gray-200">
-          <span class="sr-only">Open menu</span>
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
-        </button>
-      </div>
-      <!-- モバイルメニュー -->
-      <div id="mobileMenu" class="md:hidden hidden pb-4">
-        <div class="flex flex-col gap-3 text-sm">
-          <a href="#about" class="px-2 py-2 rounded hover:bg-gray-50">概要</a>
-          <a href="#highlights" class="px-2 py-2 rounded hover:bg-gray-50">主な活動</a>
-          <a href="#projects" class="px-2 py-2 rounded hover:bg-gray-50">プロジェクト</a>
-          <a href="#reports" class="px-2 py-2 rounded hover:bg-gray-50">活動報告</a>
-          <a href="#events" class="px-2 py-2 rounded hover:bg-gray-50">イベント</a>
-          <a href="#join" class="px-2 py-2 rounded hover:bg-gray-50">参加方法</a>
-          <a href="#contact" class="px-2 py-2 rounded hover:bg-gray-50">お問い合わせ</a>
-        </div>
+<!-- ヘッダー -->
+<header class="sticky top-0 z-50 bg-white/70 backdrop-blur border-b border-gray-100">
+  <div class="w-full max-w-full px-2">
+    <!-- 縦を拡張：スマホ=6rem、MD以上=7rem、さらに上下余裕 -->
+    <div class="flex h-20 md:h-28 items-center justify-between py-2">
+      <a href="#" class="flex items-center gap-2 md:gap-3 font-semibold min-w-0">
+        <!-- ロゴ：ヘッダー高に追従して“ほぼ目一杯”表示 -->
+        <img
+          src="assets/images/wasedaai-logo2.png"
+          alt="Waseda AI Research Club logo"
+          class="h-[4rem] md:h-[5rem] w-auto object-contain shrink-0"
+        />
+        <span class="tracking-tight text-lg md:text-xl whitespace-nowrap">早稲田AI研究会</span>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-6 text-sm">
+        <a href="#about" class="hover:text-brand-600 link-underline">早稲田AI研究会について</a>
+        <a href="#events" class="hover:text-brand-600 link-underline">開催予定のイベント</a>
+        <a href="#highlights" class="hover:text-brand-600 link-underline">主な活動</a>
+        <a href="#reports" class="hover:text-brand-600 link-underline">活動報告</a>
+        <a href="#contact" class="hover:text-brand-600 link-underline">お問い合わせ</a>
+      </nav>
+
+      <button id="menuBtn" class="md:hidden inline-flex items-center justify-center p-2 rounded-lg border border-gray-200">
+        <span class="sr-only">Open menu</span>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- モバイルメニュー -->
+    <div id="mobileMenu" class="md:hidden hidden pb-4">
+      <div class="flex flex-col gap-3 text-sm">
+        <a href="#about" class="px-2 py-2 rounded hover:bg-gray-50">早稲田AI研究会について</a>
+        <a href="#events" class="px-2 py-2 rounded hover:bg-gray-50">開催予定のイベント</a>
+        <a href="#highlights" class="px-2 py-2 rounded hover:bg-gray-50">主な活動</a>
+        <a href="#reports" class="px-2 py-2 rounded hover:bg-gray-50">活動報告</a>
+        <a href="#contact" class="px-2 py-2 rounded hover:bg-gray-50">お問い合わせ</a>
       </div>
     </div>
-  </header>
+  </div>
+</header>
+<!-- ヒーロー（フルブリード + 右端ピッタリ + 左フェード） -->
+<section class="relative overflow-hidden bg-gray-50 border-b border-gray-100">
+  <!-- 背景：右側に大きく配置し右端にぴったり -->
+  <div class="absolute inset-y-0 right-0 w-[70vw] md:w-[55vw] lg:w-[50vw]">
+    <img
+      src="assets/images/hero-waseda.png"
+      alt="早稲田大学大隈講堂とAIネットワークのイメージ"
+      class="w-full h-full object-cover parallax"
+      style="
+        /* 左端が“ほぼ境目なし”で白に溶ける */
+        -webkit-mask-image: linear-gradient(to right,
+          rgba(0,0,0,0) 0%,
+          rgba(0,0,0,.05) 8%,
+          rgba(0,0,0,.25) 18%,
+          rgba(0,0,0,.55) 32%,
+          rgba(0,0,0,1) 48%);
+              mask-image: linear-gradient(to right,
+          rgba(0,0,0,0) 0%,
+          rgba(0,0,0,.05) 8%,
+          rgba(0,0,0,.25) 18%,
+          rgba(0,0,0,.55) 32%,
+          rgba(0,0,0,1) 48%);
+      "
+    />
+  </div>
 
-  <!-- ヒーロー（左側のみ表示） -->
-  <section class="bg-gray-50 border-b border-gray-100">
-    <div class="mx-auto max-w-6xl px-4 py-16 md:py-24">
+  <!-- コンテンツ：左端に“ちゃんと”付くように全幅＆左右0パディング -->
+  <div class="max-w-none px-0 py-14 md:py-24 relative">
+    <!-- テキストを読みやすく中央付近に寄せるための内側ラッパ（必要最低限の左パディングのみ） -->
+    <div class="pl-2 sm:pl-4 md:pl-8 max-w-6xl">
       <div class="max-w-3xl fade-in">
         <h1 class="text-3xl md:text-5xl font-extrabold leading-tight">
           AIで時代を切り開く
-          <span class="block text-brand-600">早稲田AI研究会</span>
+          <span class="block brand-gradient">早稲田AI研究会</span>
         </h1>
-        <p class="mt-5 text-base md:text-lg text-gray-600">
-          早稲田大学生によるAIコミュニティ。LLM、生成AI、社会実装まで、
-          AIに関することを深く広く学びます。
+
+        <!-- ▼▼ ここだけ変更：文言・改行・黒/はっきりめのフォントに調整 ▼▼ -->
+        <p class="mt-5 text-black font-semibold tracking-tight text-base md:text-xl leading-relaxed">
+          早稲田大学生によるAIコミュニティ<br class="hidden sm:block">
+          生成AI、LLM、社会実装まで
         </p>
+        <!-- ▲▲ ここだけ変更 ▲▲ -->
+
         <div class="mt-6 flex flex-wrap gap-3">
-          <a href="#join" class="inline-flex items-center justify-center rounded-xl bg-brand-600 px-5 py-3 text-white font-semibold shadow hover:bg-brand-700">参加する</a>
-          <a href="#projects" class="inline-flex items-center justify-center rounded-xl border border-gray-300 px-5 py-3 font-semibold hover:bg-gray-100">プロジェクトを見る</a>
+          <a href="https://forms.gle/moMq3WuP3r6yc72QA" target="_blank" rel="noopener"
+             class="group inline-block rounded-xl p-[2px] bg-gradient-to-r from-brand-600 to-accent-600 shadow-glowO hover:shadow-glowB transition">
+            <span class="inline-flex items-center justify-center rounded-[0.75rem] bg-white px-5 py-3 font-semibold text-gray-900 group-hover:bg-gray-50">
+              参加する
+            </span>
+          </a>
+          <a href="#events"
+             class="inline-flex items-center justify-center rounded-xl border border-accent-600 px-5 py-3 font-semibold hover:bg-gray-100 transition">
+            開催予定を見る
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+      <!-- 右：背景画像（既存の構造は残します） -->
+      <div class="relative w-full h-full">
+        <img
+          src="assets/images/hero-waseda.png"
+          alt="早稲田大学大隈講堂とAIネットワークのイメージ"
+          class="absolute inset-0 w-full h-full object-cover"
+          style="
+            -webkit-mask-image: linear-gradient(to right,
+              rgba(0,0,0,0) 0%,
+              rgba(0,0,0,0.05) 10%,
+              rgba(0,0,0,0.3) 25%,
+              rgba(0,0,0,0.6) 40%,
+              rgba(0,0,0,1) 55%);
+            mask-image: linear-gradient(to right,
+              rgba(0,0,0,0) 0%,
+              rgba(0,0,0,0.05) 10%,
+              rgba(0,0,0,0.3) 25%,
+              rgba(0,0,0,0.6) 40%,
+              rgba(0,0,0,1) 55%);
+          "
+        />
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+  <!-- 早稲田AI研究会について -->
+  <section id="about" class="mx-auto max-w-6xl px-4 py-16">
+    <div class="reveal">
+      <h2 class="text-2xl md:text-3xl font-bold">早稲田AI研究会について</h2>
+      <p class="mt-4 text-gray-700 leading-relaxed max-w-3xl">
+        AIに興味のある学生が集まり、
+        勉強会・プロジェクト開発を通じてAIに対する理解を深めるサークルです。
+        2023年の創設以来、早大生を中心に200人を超えるメンバーが参加中。<br class="hidden sm:block">
+        初心者から上級者まで文理を問わず、我々と一緒に活動するメンバーを募集しています！！<br class="hidden sm:block">
+        
+      </p>
+      <div class="mt-8 grid gap-6 md:grid-cols-3">
+        <!-- すべて指定画像をアイコンとして使用（内容差し替え） -->
+        <div class="glass rounded-2xl p-6 shadow-soft">
+          <div class="flex items-center gap-3">
+            <img src="assets/images/wasedaai-logo2.png" alt="" class="h-6 w-6 rounded-md" />
+            <h3 class="font-semibold">学ぶ</h3>
+          </div>
+          <p class="mt-2 text-sm text-gray-600">AIの根本原理から最新の生成AI情報まで</p>
+        </div>
+        <div class="glass rounded-2xl p-6 shadow-soft">
+          <div class="flex items-center gap-3">
+            <img src="assets/images/wasedaai-logo2.png" alt="" class="h-6 w-6 rounded-md" />
+            <h3 class="font-semibold">つくる</h3>
+          </div>
+          <p class="mt-2 text-sm text-gray-600">身近な課題を最新のテクノロジーで解決</p>
+        </div>
+        <div class="glass rounded-2xl p-6 shadow-soft">
+          <div class="flex items-center gap-3">
+            <img src="assets/images/wasedaai-logo2.png" alt="" class="h-6 w-6 rounded-md" />
+            <h3 class="font-semibold">共有する</h3>
+          </div>
+          <p class="mt-2 text-sm text-gray-600">Discordや隔週での勉強会を通じてそれぞれの知見を交換</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 主な活動（元ヒーロー右カードをここへ） -->
-  <section id="highlights" class="mx-auto max-w-6xl px-4 py-12 md:py-16">
-    <h2 class="text-2xl md:text-3xl font-bold">現在の主な活動</h2>
-    <div class="mt-6 rounded-2xl bg-gradient-to-br from-brand-600 to-gray-900 text-white p-6 sm:p-8 shadow-lg">
-      <ul class="space-y-2 text-sm md:text-base">
-        <li>・WasedaAI（履修相談アシスタント）の開発</li>
-        <li>・学内外向けハッカソン／LT会の開催</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- 概要 -->
-  <section id="about" class="mx-auto max-w-6xl px-4 py-16">
-    <h2 class="text-2xl md:text-3xl font-bold">研究会の概要</h2>
-    <p class="mt-4 text-gray-700 leading-relaxed max-w-3xl">
-      早稲田AI研究会は、AI/機械学習に興味のある学生が集まり、
-      勉強会・読書会・実装会・プロジェクト開発を通じてスキルを伸ばすコミュニティです。
-      文理不問・初心者歓迎です。
-    </p>
-    <div class="mt-8 grid gap-6 md:grid-cols-3">
-      <div class="rounded-2xl border border-gray-200 p-6"><h3 class="font-semibold">学ぶ</h3><p class="mt-2 text-sm text-gray-600">線形代数・微積・確率統計から、Python/LLMまで段階的に。</p></div>
-      <div class="rounded-2xl border border-gray-200 p-6"><h3 class="font-semibold">つくる</h3><p class="mt-2 text-sm text-gray-600">身近な課題を題材にアプリやツールを開発。Hack→Shipまで。</p></div>
-      <div class="rounded-2xl border border-gray-200 p-6"><h3 class="font-semibold">共有する</h3><p class="mt-2 text-sm text-gray-600">LT会・記事・GitHubで知見を公開し、仲間を増やす。</p></div>
-    </div>
-  </section>
-
-  <!-- プロジェクト -->
-  <section id="projects" class="bg-gray-50">
-    <div class="mx-auto max-w-6xl px-4 py-16">
-      <h2 class="text-2xl md:text-3xl font-bold">プロジェクト</h2>
-      <div class="mt-8 grid gap-6 md:grid-cols-3">
-        <article class="rounded-2xl border border-gray-200 bg-white p-6">
-          <h3 class="font-semibold">WasedaAI（履修相談）</h3>
-          <p class="mt-2 text-sm text-gray-600">シラバスや教員情報を活用して履修相談に答える学内向けAI。</p>
-          <a href="#" class="mt-3 inline-flex text-sm font-semibold text-brand-700 hover:underline">詳しく</a>
-        </article>
-        <article class="rounded-2xl border border-gray-200 bg-white p-6">
-          <h3 class="font-semibold">Law × LLM</h3>
-          <p class="mt-2 text-sm text-gray-600">法情報の検索・要約・根拠提示を目指すRAGシステムの研究。</p>
-          <a href="#" class="mt-3 inline-flex text-sm font-semibold text-brand-700 hover:underline">詳しく</a>
-        </article>
-        <article class="rounded-2xl border border-gray-200 bg-white p-6">
-          <h3 class="font-semibold">AI勉強会</h3>
-          <p class="mt-2 text-sm text-gray-600">G検定/E資格や深層学習の輪読・Kaggleミニ講座など。</p>
-          <a href="#" class="mt-3 inline-flex text-sm font-semibold text-brand-700 hover:underline">詳しく</a>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- 活動報告（新設） -->
-  <section id="reports" class="mx-auto max-w-6xl px-4 py-16">
-    <h2 class="text-2xl md:text-3xl font-bold">活動報告</h2>
-    <div class="mt-8 grid gap-6 md:grid-cols-3">
-      <article class="rounded-2xl border border-gray-200 p-6">
-        <p class="text-xs text-gray-500">2025/09/15</p>
-        <h3 class="mt-1 font-semibold">第1回 LLM入門ハンズオンを開催</h3>
-        <p class="mt-2 text-sm text-gray-600">基礎プロンプトからRAGまでを体験。参加者20名。</p>
-        <a href="#" class="mt-3 inline-flex text-sm font-semibold text-brand-700 hover:underline">レポート</a>
-      </article>
-      <article class="rounded-2xl border border-gray-200 p-6">
-        <p class="text-xs text-gray-500">2025/08/30</p>
-        <h3 class="mt-1 font-semibold">学内LT会：AI×法の最前線</h3>
-        <p class="mt-2 text-sm text-gray-600">判例検索や要約の実験結果を共有。発表6本。</p>
-        <a href="#" class="mt-3 inline-flex text-sm font-semibold text-brand-700 hover:underline">レポート</a>
-      </article>
-      <article class="rounded-2xl border border-gray-200 p-6">
-        <p class="text-xs text-gray-500">2025/07/20</p>
-        <h3 class="mt-1 font-semibold">WasedaAI α版を公開</h3>
-        <p class="mt-2 text-sm text-gray-600">履修相談の一部機能を学内テストとして試行。</p>
-        <a href="#" class="mt-3 inline-flex text-sm font-semibold text-brand-700 hover:underline">レポート</a>
-      </article>
-    </div>
-  </section>
-
-  <!-- イベント -->
+  <!-- 開催予定のイベント -->
   <section id="events" class="bg-gray-50">
     <div class="mx-auto max-w-6xl px-4 py-16">
-      <h2 class="text-2xl md:text-3xl font-bold">イベント</h2>
-      <ul class="mt-6 space-y-4">
-        <li class="rounded-2xl border border-gray-200 p-5 bg-white">
-          <div class="flex items-center justify-between">
-            <div>
-              <p class="font-semibold">10月定例：LLM入門＆ハンズオン</p>
-              <p class="text-sm text-gray-600">2025/10/12 (日) 13:00-16:00 @ 早稲田キャンパス</p>
+      <div class="reveal">
+        <h2 class="text-2xl md:text-3xl font-bold">開催予定のイベント</h2>
+        <ul class="mt-6 space-y-4">
+          <!-- AI事業ハッカソン：参加登録リンク差し替え -->
+          <li class="rounded-2xl border border-gray-200 p-5 bg-white shadow-soft hover:shadow-md transition">
+            <div class="flex items-center justify-between">
+              <div class="space-y-0.5">
+                <p class="font-semibold">AI事業ハッカソン</p>
+                <p class="text-sm text-gray-600">9/30 (火) 15:00-19:00 @ 新宿駅周辺</p>
+              </div>
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLSelEPPVVyifjv5XAcsGZvaq_lwCyLv4Y6nHXnJpReZ930j2GQ/viewform?usp=sharing&ouid=101492472201161893897"
+                 target="_blank" rel="noopener"
+                 class="inline-flex items-center gap-2 rounded-lg border px-3 py-2 text-sm font-semibold hover:bg-gray-50 transition">
+                <img src="assets/images/wasedaai-logo2.png" alt="" class="h-4 w-4 rounded" />
+                参加登録
+              </a>
             </div>
-            <a href="#join" class="inline-flex rounded-lg border px-3 py-2 text-sm font-semibold hover:bg-gray-50">参加登録</a>
-          </div>
-        </li>
-        <li class="rounded-2xl border border-gray-200 p-5 bg-white">
-          <div class="flex items-center justify-between">
-            <div>
-              <p class="font-semibold">LT会：AI×法 × 起業</p>
-              <p class="text-sm text-gray-600">2025/11/09 (日) 15:00-17:00 @ オンライン</p>
-            </div>
-            <a href="#join" class="inline-flex rounded-lg border px-3 py-2 text-sm font-semibold hover:bg-gray-50">参加登録</a>
-          </div>
-        </li>
-      </ul>
+          </li>
+          <!-- 新規：AI Huck Day -->
+<li class="rounded-2xl border border-gray-200 p-5 bg-white shadow-soft hover:shadow-md transition">
+  <div class="flex items-center justify-between">
+    <div class="space-y-0.5">
+      <p class="font-semibold">AI Huck Day</p>
+      <p class="text-sm text-gray-600">10/12（日）14:00-17:00 ＠渋谷 道玄坂</p>
+    </div>
+
+    <div class="flex gap-2">
+      <button
+        type="button"
+        onclick="openHuckdayModal()"
+        class="inline-flex items-center gap-2 rounded-lg border px-3 py-2 text-sm font-semibold hover:bg-gray-50 transition"
+      >
+        詳細を見る
+      </button>
+
+      <a
+        href="https://docs.google.com/forms/d/e/1FAIpQLSdGzQj-kVRLWBN6PTTRbPjLGKKNB97sD_v1MwdgxhP6YqexnA/viewform"
+        target="_blank" rel="noopener"
+        class="inline-flex items-center gap-2 rounded-lg border px-3 py-2 text-sm font-semibold hover:bg-gray-50 transition"
+      >
+        <img src="assets/images/wasedaai-logo2.png" alt="" class="h-4 w-4 rounded" />
+        参加登録
+      </a>
+    </div>
+  </div>
+</li>
+
+<div
+  id="ai-huckday-modal"
+  class="hidden fixed inset-0 flex items-center justify-center bg-black/70"
+  style="z-index:2147483647"
+  onclick="closeHuckdayModal()"
+>
+  <div
+    class="relative bg-white rounded-lg shadow-xl w-[95%] md:w-[80%] max-w-4xl max-h-[90vh] overflow-auto"
+    onclick="event.stopPropagation()"
+    role="dialog" aria-modal="true" aria-labelledby="ai-huckday-title"
+  >
+    <button
+      type="button"
+      aria-label="閉じる"
+      onclick="closeHuckdayModal()"
+      class="absolute -top-3 -right-3 bg-white rounded-full p-2 shadow hover:bg-gray-100 transition"
+    >✖️</button>
+
+    <img
+      id="ai-huckday-img"
+      src="assets/images/ai-huckday.jpeg"
+      alt="AI Hack Day 詳細"
+      class="w-full h-auto object-contain max-h-[85vh] rounded-lg"
+    />
+  </div>
+</div>
+
+<script>
+  (function () {
+    window.openHuckdayModal = function () {
+      const m = document.getElementById('ai-huckday-modal');
+      if (!m) return;
+      if (!m.dataset.portaled) {
+        document.body.appendChild(m);
+        m.dataset.portaled = '1';
+      }
+      document.documentElement.classList.add('overflow-y-hidden');
+      m.classList.remove('hidden');
+    };
+
+    window.closeHuckdayModal = function () {
+      const m = document.getElementById('ai-huckday-modal');
+      if (!m) return;
+      m.classList.add('hidden');
+      document.documentElement.classList.remove('overflow-y-hidden');
+    };
+  })();
+</script>
+       </ul>
+      </div>
     </div>
   </section>
 
-  <!-- 参加方法 -->
-  <section id="join" class="mx-auto max-w-6xl px-4 py-16">
-    <h2 class="text-2xl md:text-3xl font-bold">参加方法</h2>
-    <ol class="mt-4 list-decimal list-inside space-y-2 text-gray-700 max-w-3xl">
-      <li>興味のある活動分野を決める（LLM / 法×AI / Web開発 など）</li>
-      <li>フォームから参加申請（下の「お問い合わせ」でもOK）</li>
-      <li>オンボーディング資料を読み、初回ミーティングに参加</li>
-    </ol>
-    <div class="mt-6 rounded-2xl border border-gray-200 bg-white p-6">
-      <p class="text-sm text-gray-600">※ 初心者歓迎。週1〜隔週のゆるやかな進行。授業優先でOK。</p>
+  <!-- 主な活動 -->
+  <section id="highlights" class="mx-auto max-w-6xl px-4 py-12 md:py-16">
+    <div class="reveal">
+      <h2 class="text-2xl md:text-3xl font-bold">現在の主な活動</h2>
+
+      <div class="mt-6 rounded-2xl p-[2px] bg-gradient-to-br from-brand-600 to-accent-700 shadow-lg">
+        <div class="rounded-[1rem] bg-white p-6 sm:p-8 text-gray-800">
+          <ul class="space-y-2 text-sm md:text-base">
+            <li class="flex items-start gap-2">
+              <img src="assets/images/wasedaai-logo2.png" alt="" class="h-4 w-4 mt-1 rounded" />
+              隔週での勉強会
+            </li>
+            <li class="flex items-start gap-2">
+              <img src="assets/images/wasedaai-logo2.png" alt="" class="h-4 w-4 mt-1 rounded" />
+              WasedaAI（履修相談アシスタント）の開発
+            </li>
+            <li class="flex items-start gap-2">
+              <img src="assets/images/wasedaai-logo2.png" alt="" class="h-4 w-4 mt-1 rounded" />
+              学内外向けハッカソンの開催
+            </li>
+          </ul>
+        </div>
+      </div>
+
     </div>
   </section>
 
-  <!-- お問い合わせ（デモ） -->
-  <section id="contact" class="bg-gray-50">
-    <div class="mx-auto max-w-6xl px-4 py-16">
+  <!-- 活動報告 -->
+  <section id="reports" class="mx-auto max-w-6xl px-4 py-16">
+    <div class="reveal">
+      <h2 class="text-2xl md:text-3xl font-bold">活動報告</h2>
+      <div class="mt-8 grid gap-6 md:grid-cols-3">
+        <article class="rounded-2xl border border-gray-200 p-6 shadow-soft hover:shadow-md transition">
+          <div class="flex items-center gap-2">
+            <img src="assets/images/wasedaai-logo2.png" alt="" class="h-5 w-5 rounded" />
+            <p class="text-xs text-gray-500"></p>
+          </div>
+          <h3 class="mt-2 font-semibold"></h3>
+          <p class="mt-2 text-sm text-gray-600"></p>
+          <a href="#" class="mt-3 inline-flex text-sm font-semibold text-accent-700 link-underline"></a>
+        </article>
+
+        <article class="rounded-2xl border border-gray-200 p-6 shadow-soft hover:shadow-md transition">
+          <div class="flex items-center gap-2">
+            <img src="assets/images/wasedaai-logo2.png" alt="" class="h-5 w-5 rounded" />
+            <p class="text-xs text-gray-500">
+          </div>
+          <h3 class="mt-2 font-semibold">
+          <p class="mt-2 text-sm text-gray-600"></p>
+          <a href="#" class="mt-3 inline-flex text-sm font-semibold text-accent-700 link-underline"></a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- お問い合わせ（SNSリンク） -->
+<section id="contact" class="bg-gray-50">
+  <div class="mx-auto max-w-6xl px-4 py-16">
+    <div class="reveal">
       <h2 class="text-2xl md:text-3xl font-bold">お問い合わせ</h2>
-      <form class="mt-6 grid gap-4 md:max-w-xl">
-        <div>
-          <label class="block text-sm font-medium">お名前</label>
-          <input type="text" class="mt-1 w-full rounded-lg border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-brand-500" placeholder="早稲田 太郎" />
+
+      <div class="mt-6 grid gap-4 md:grid-cols-3">
+        <!-- X -->
+        <a
+          href="https://x.com/waseda_ai"
+          target="_blank"
+          rel="noopener"
+          class="group rounded-2xl border border-gray-200 bg-white p-5 hover:border-accent-600 shadow-soft hover:shadow-md transition"
+        >
+          <div class="flex items-center gap-3">
+            <img src="assets/images/x-logo.jpg" alt="X" class="h-6 w-6 rounded-md" />
+            <div>
+              <p class="font-semibold group-hover:text-accent-700">X（@waseda_ai）</p>
+              <p class="text-xs text-gray-500">最新情報はこちら</p>
+            </div>
+          </div>
+        </a>
+
+        <!-- Instagram -->
+        <a
+          href="https://www.instagram.com/waseda_ai/"
+          target="_blank"
+          rel="noopener"
+          class="group rounded-2xl border border-gray-200 bg-white p-5 hover:border-accent-600 shadow-soft hover:shadow-md transition"
+        >
+          <div class="flex items-center gap-3">
+            <img src="assets/images/insta-logo.jpg" alt="Instagram" class="h-6 w-6 rounded-md" />
+            <div>
+              <p class="font-semibold group-hover:text-accent-700">Instagram（@waseda_ai）</p>
+              <p class="text-xs text-gray-500">活動風景・レポートはこちら</p>
+            </div>
+          </div>
+        </a>
+
+        <!-- E-mail：ページ遷移なし＋コピーするボタン -->
+        <div class="group rounded-2xl border border-gray-200 bg-white p-5 hover:border-accent-600 shadow-soft hover:shadow-md transition">
+          <div class="flex items-center gap-3">
+            <img src="assets/images/wasedaai-logo2.png" alt="Email" class="h-6 w-6 rounded-md" />
+            <div class="flex-1">
+              <p class="font-semibold group-hover:text-accent-700">E-mail</p>
+              <p class="text-xs text-gray-500">waseda.ai.club@gmail.com</p>
+            </div>
+
+            <button
+              type="button"
+              id="copy-email-btn"
+              class="inline-flex items-center rounded-lg border border-accent-600 px-3 py-2 text-sm font-semibold hover:bg-gray-100 transition"
+              aria-describedby="copy-email-status"
+            >
+              コピー
+            </button>
+          </div>
+          <span id="copy-email-status" class="sr-only" aria-live="polite"></span>
         </div>
-        <div>
-          <label class="block text-sm font-medium">メールアドレス</label>
-          <input type="email" class="mt-1 w-full rounded-lg border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-brand-500" placeholder="example@ruri.waseda.jp" />
-        </div>
-        <div>
-          <label class="block text-sm font-medium">内容</label>
-          <textarea rows="4" class="mt-1 w-full rounded-lg border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-brand-500" placeholder="問い合わせ内容をお書きください"></textarea>
-        </div>
-        <button type="button" class="rounded-xl bg-brand-600 px-5 py-3 text-white font-semibold hover:bg-brand-700">送信（デモ）</button>
-        <p class="text-xs text-gray-500">※ 実運用はGoogleフォーム等に置き換えてください。</p>
-      </form>
+      </div>
     </div>
-  </section>
+  </div>
+</section>
+
+<!-- お問い合わせ：E-mailコピー用スクリプト -->
+<script>
+  (function () {
+    const EMAIL = "waseda.ai.club@gmail.com";
+    const btn = document.getElementById("copy-email-btn");
+    const status = document.getElementById("copy-email-status");
+    if (!btn) return;
+
+    btn.addEventListener("click", async () => {
+      const setDone = () => {
+        const original = btn.textContent;
+        btn.textContent = "コピー完了！";
+        if (status) status.textContent = "メールアドレスをコピーしました。";
+        setTimeout(() => {
+          btn.textContent = original;
+          if (status) status.textContent = "";
+        }, 2000);
+      };
+
+      try {
+        await navigator.clipboard.writeText(EMAIL);
+        setDone();
+      } catch {
+        const temp = document.createElement("input");
+        temp.value = EMAIL;
+        document.body.appendChild(temp);
+        temp.select();
+        document.execCommand("copy");
+        document.body.removeChild(temp);
+        setDone();
+      }
+    });
+  })();
+</script>
 
   <!-- フッター -->
   <footer class="border-t border-gray-200">
@@ -227,8 +545,6 @@
       <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
         <p>© <span id="year"></span> 早稲田AI研究会</p>
         <nav class="flex gap-4">
-          <a href="#" class="hover:underline">利用規約</a>
-          <a href="#" class="hover:underline">プライバシー</a>
           <a href="#contact" class="hover:underline">お問い合わせ</a>
         </nav>
       </div>
@@ -241,7 +557,111 @@
     const btn = document.getElementById('menuBtn');
     const menu = document.getElementById('mobileMenu');
     btn?.addEventListener('click', () => menu.classList.toggle('hidden'));
+
+    // reveal on scroll
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('show');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
   </script>
+
+  <!-- ===== ▼ 追加：uravation.com風の“動きながら出る”演出（機能や内容はそのまま） ▼ ===== -->
+<script>
+  (function () {
+    const EDGE_SAFE_SELECTOR =
+      '#contact .grid > *, #events ul > li, #about .grid > *, #reports .grid > *';
+
+    function pick() {
+      return [
+        ...document.querySelectorAll(
+          'section h1, section h2, section > .mx-auto, section > .max-w-6xl, section .glass, section article, #events ul, .rounded-2xl.shadow-soft'
+        )
+      ];
+    }
+
+    const targets = new Set();
+    const edgeSafeNodes = new Set(document.querySelectorAll(EDGE_SAFE_SELECTOR));
+
+    pick().forEach((el, i) => {
+      el.classList.add('sa-base');
+      if (edgeSafeNodes.has(el)) el.classList.add('sa-no-x');
+
+      const r = i % 3;
+      if (!edgeSafeNodes.has(el)) {
+        if (r === 1) el.classList.add('sa-x-left');
+        if (r === 2) el.classList.add('sa-x-right');
+      }
+      el.setAttribute('data-sa-delay', String((i % 5) + 1));
+      targets.add(el);
+    });
+
+    const obs = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (!e.isIntersecting) return;
+          e.target.classList.add('sa-in');
+          obs.unobserve(e.target);
+        });
+      },
+      { threshold: 0.15, rootMargin: '0px 0px -10% 0px' }
+    );
+
+    targets.forEach((el) => obs.observe(el));
+
+    let ticking = false;
+    const refresh = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        pick().forEach((el) => {
+          if (!targets.has(el)) {
+            el.classList.add('sa-base');
+            if (el.matches(EDGE_SAFE_SELECTOR)) el.classList.add('sa-no-x');
+            el.setAttribute('data-sa-delay', '1');
+            targets.add(el);
+            obs.observe(el);
+          }
+        });
+        ticking = false;
+      });
+    };
+    window.addEventListener('resize', refresh);
+    window.addEventListener('orientationchange', refresh);
+
+    const parallaxEls = document.querySelectorAll('.parallax');
+    const onScroll = () => {
+      parallaxEls.forEach((el) => {
+        const rect = el.getBoundingClientRect();
+        if (rect.bottom > 0 && rect.top < window.innerHeight) {
+          const strength = 0.05;
+          const offset = Math.max(-24, Math.min(24, (window.scrollY - el.offsetTop) * strength));
+          el.style.transform = `translateY(${offset}px)`;
+        }
+      });
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+  })();
+ </script>
+
+  <!-- ===== ▲ 追加ここまで ▲ ===== -->
+   <script>
+  // ブラウザの自動スクロール復元を無効化
+  if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+  }
+  window.addEventListener('load', () => {
+    const nav = performance.getEntriesByType('navigation')[0];
+    const isBackForward = nav && nav.type === 'back_forward';
+    const hasHash = !!location.hash;
+    if (!isBackForward && !hasHash) {
+      requestAnimationFrame(() => window.scrollTo(0, 0));
+    }
+  });
+ </script>
 </body>
 </html>
-
