@@ -128,10 +128,10 @@
 
       <nav class="hidden md:flex items-center gap-6 text-sm">
         <a href="#about" class="hover:text-brand-600 link-underline">早稲田AI研究会について</a>
-        <a href="#events" class="hover:text-brand-600 link-underline">開催予定のイベント</a>
-        <a href="#highlights" class="hover:text-brand-600 link-underline">主な活動</a>
         <a href="#reports" class="hover:text-brand-600 link-underline">活動報告</a>
-        <a href="#contact" class="hover:text-brand-600 link-underline">お問い合わせ</a>
+        <a href="#events" class="hover:text-brand-600 link-underline">イベント予定</a>
+        <a href="#highlights" class="hover:text-brand-600 link-underline">主な活動</a>
+        <a href="#contact" class="hover:text-brand-600 link-underline">SNS・お問い合わせ</a>
       </nav>
 
       <button id="menuBtn" class="md:hidden inline-flex items-center justify-center p-2 rounded-lg border border-gray-200">
@@ -146,10 +146,10 @@
     <div id="mobileMenu" class="md:hidden hidden pb-4">
       <div class="flex flex-col gap-3 text-sm">
         <a href="#about" class="px-2 py-2 rounded hover:bg-gray-50">早稲田AI研究会について</a>
+        <a href="#reports" class="px-2 py-2 rounded hover:bg-gray-50">活動報告</a>
         <a href="#events" class="px-2 py-2 rounded hover:bg-gray-50">開催予定のイベント</a>
         <a href="#highlights" class="px-2 py-2 rounded hover:bg-gray-50">主な活動</a>
-        <a href="#reports" class="px-2 py-2 rounded hover:bg-gray-50">活動報告</a>
-        <a href="#contact" class="px-2 py-2 rounded hover:bg-gray-50">お問い合わせ</a>
+        <a href="#contact" class="px-2 py-2 rounded hover:bg-gray-50">SNS・お問い合わせ</a>
       </div>
     </div>
   </div>
@@ -204,10 +204,7 @@
               参加する
             </span>
           </a>
-          <a href="#events"
-             class="inline-flex items-center justify-center rounded-xl border border-accent-600 px-5 py-3 font-semibold hover:bg-gray-100 transition">
-            開催予定を見る
-          </a>
+          
         </div>
       </div>
     </div>
@@ -252,7 +249,8 @@
         AIに興味のある学生が集まり、
         勉強会・プロジェクト開発を通じてAIに対する理解を深めるサークルです。
         2023年の創設以来、早大生を中心に200人を超えるメンバーが参加中。<br class="hidden sm:block">
-        初心者から上級者まで文理を問わず、我々と一緒に活動するメンバーを募集しています！！<br class="hidden sm:block">
+        初心者から上級者まで文理を問わず、我々と一緒に活動するメンバーを募集しています！！
+        <br class="hidden sm:block">
         
       </p>
       <div class="mt-8 grid gap-6 md:grid-cols-3">
@@ -282,68 +280,76 @@
     </div>
   </section>
 
-  <!-- 開催予定のイベント -->
-  <section id="events" class="bg-gray-50">
-    <div class="mx-auto max-w-6xl px-4 py-16">
-      <div class="reveal">
-        <h2 class="text-2xl md:text-3xl font-bold">開催予定のイベント</h2>
+
+  <!-- 活動報告 -->
+
+  <section id="reports" class="mx-auto max-w-6xl px-4 py-16">
+    <div class="reveal">
+      <h2 class="text-2xl md:text-3xl font-bold">活動報告</h2>
+      <div class="mt-8 grid gap-6 md:grid-cols-3">
+
+         <article class="rounded-2xl border border-gray-200 p-6 shadow-soft hover:shadow-md transition">
+          <div class="flex items-center gap-2">
+            <img src="assets/images/wasedaai-logo2.png" alt="" class="h-5 w-5 rounded" />
+            <p class="text-xs text-gray-500">2025年10月14日</p>
+          </div>
+          <h3 class="mt-2 font-semibold">定期勉強会を行いました!</h3>
+             <p class="mt-2 text-sm text-gray-600">「AIで大学生活をハックする」というテーマで4人のメンバーが発表を行いました。発表内容は以下の通りです。<br class="hidden sm:block">
+            ・NotebookLMによる学習の効率化<br class="hidden sm:block">
+            ・GPTsの活用法<br class="hidden sm:block">
+            ・GASを用いたスライド作成法<br class="hidden sm:block">
+            ・Cursorによる自然言語でのコード生成<br class="hidden sm:block">
+          </p>
+            
+          <a href="#" class="mt-3 inline-flex text-sm font-semibold text-accent-700 link-underline"></a>
+        </article>
+
+
+        <article class="rounded-2xl border border-gray-200 p-6 shadow-soft hover:shadow-md transition">
+          <div class="flex items-center gap-2">
+            <img src="assets/images/wasedaai-logo2.png" alt="" class="h-5 w-5 rounded" />
+            <p class="text-xs text-gray-500">2025年10月12日</p>
+          </div>
+          <h3 class="mt-2 font-semibold">AI Huck Dayを開催しました!</h3>
+          <p class="mt-2 text-sm text-gray-600"> AI Huck Dayを慶應義塾大学のNeurabit、東京理科大学のSpecTechと共同で開催しました。30人を超える学生が参加し、
+            各団体の代表者がGoogle社の提供するAIツールの使い方について体験を交えた講義を行いました。早稲田AI研究会からは代表の舟橋が登壇し、NanoBananaの利用法について紹介しました。
+          <a href="#" class="mt-3 inline-flex text-sm font-semibold text-accent-700 link-underline"></a>
+        </article>
+
+        <article class="rounded-2xl border border-gray-200 p-6 shadow-soft hover:shadow-md transition">
+          <div class="flex items-center gap-2">
+            <img src="assets/images/wasedaai-logo2.png" alt="" class="h-5 w-5 rounded" />
+            <p class="text-xs text-gray-500">2025年9月30日</p>
+          </div>
+          <h3 class="mt-2 font-semibold">アイデアソンを開催しました!</h3>
+          <p class="mt-2 text-sm text-gray-600">「1億円ビジネスを作ろう」というテーマでアイデアソンを開催し、早大生を中心に30人ほどが参加しました。
+            AIを活用してリサーチやスライド作成を行ったのち、チームごとに事業案の発表を行いました。<br class="hidden sm:block">
+            ゲストとして実業家のけんすうさんとそらさんにお越しいただき、事業案についての鋭いフィードバックをいただきました。<br class="hidden sm:block">
+          <a href="#" class="mt-3 inline-flex text-sm font-semibold text-accent-700 link-underline"></a>
+        </article>
+
+       
         <ul class="mt-6 space-y-4">
          
-          <!-- 新規：AI Huck Day -->
-<li class="rounded-2xl border border-gray-200 p-5 bg-white shadow-soft hover:shadow-md transition">
-  <div class="flex items-center justify-between">
-    <div class="space-y-0.5">
-      <p class="font-semibold">AI Huck Day</p>
-      <p class="text-sm text-gray-600">10/12（日）14:00-17:00 ＠渋谷 道玄坂</p>
-    </div>
+          <!-- 開催予定のイベント --> 
+           <section id="events" class="bg-gray-50">
+             <div class="mx-auto max-w-6xl px-4 py-16"> 
+              <div class="reveal"> 
+                <h2 class="text-2xl md:text-3xl font-bold">イベント予定
 
-    <div class="flex gap-2">
-      <button
-        type="button"
-        onclick="openHuckdayModal()"
-        class="inline-flex items-center gap-2 rounded-lg border px-3 py-2 text-sm font-semibold hover:bg-gray-50 transition"
-      >
-        詳細を見る
-      </button>
+                </h2> <ul class="mt-6 space-y-4"></ul>
+         
+                 <li class="rounded-2xl border border-gray-200 p-5 bg-white shadow-soft hover:shadow-md transition">
+                  <div class="flex items-center justify-between">
+                   <div class="space-y-0.5">
+                    <p class="font-semibold">勉強会</p>
+                    <p class="text-sm text-gray-600">10/30（木）17:00〜18:40 ＠早稲田キャンパス</p>
+                   </div>
+               </div>
+             </div>
+         </li>
 
-      <a
-        href="https://docs.google.com/forms/d/e/1FAIpQLSdGzQj-kVRLWBN6PTTRbPjLGKKNB97sD_v1MwdgxhP6YqexnA/viewform"
-        target="_blank" rel="noopener"
-        class="inline-flex items-center gap-2 rounded-lg border px-3 py-2 text-sm font-semibold hover:bg-gray-50 transition"
-      >
-        <img src="assets/images/wasedaai-logo2.png" alt="" class="h-4 w-4 rounded" />
-        参加登録
-      </a>
-    </div>
-  </div>
-</li>
 
-<div
-  id="ai-huckday-modal"
-  class="hidden fixed inset-0 flex items-center justify-center bg-black/70"
-  style="z-index:2147483647"
-  onclick="closeHuckdayModal()"
->
-  <div
-    class="relative bg-white rounded-lg shadow-xl w-[95%] md:w-[80%] max-w-4xl max-h-[90vh] overflow-auto"
-    onclick="event.stopPropagation()"
-    role="dialog" aria-modal="true" aria-labelledby="ai-huckday-title"
-  >
-    <button
-      type="button"
-      aria-label="閉じる"
-      onclick="closeHuckdayModal()"
-      class="absolute -top-3 -right-3 bg-white rounded-full p-2 shadow hover:bg-gray-100 transition"
-    >✖️</button>
-
-    <img
-      id="ai-huckday-img"
-      src="assets/images/ai-huckday.jpeg"
-      alt="AI Hack Day 詳細"
-      class="w-full h-auto object-contain max-h-[85vh] rounded-lg"
-    />
-  </div>
-</div>
 
 <script>
   (function () {
@@ -385,11 +391,11 @@
             </li>
             <li class="flex items-start gap-2">
               <img src="assets/images/wasedaai-logo2.png" alt="" class="h-4 w-4 mt-1 rounded" />
-              WasedaAI（履修相談アシスタント）の開発
+              早稲田生向けAIツールの開発
             </li>
             <li class="flex items-start gap-2">
               <img src="assets/images/wasedaai-logo2.png" alt="" class="h-4 w-4 mt-1 rounded" />
-              学内外向けハッカソンの開催
+              交流会、アイデアソン等のイベント開催
             </li>
           </ul>
         </div>
@@ -398,39 +404,13 @@
     </div>
   </section>
 
-  <!-- 活動報告 -->
-  <section id="reports" class="mx-auto max-w-6xl px-4 py-16">
-    <div class="reveal">
-      <h2 class="text-2xl md:text-3xl font-bold">活動報告</h2>
-      <div class="mt-8 grid gap-6 md:grid-cols-3">
-        <article class="rounded-2xl border border-gray-200 p-6 shadow-soft hover:shadow-md transition">
-          <div class="flex items-center gap-2">
-            <img src="assets/images/wasedaai-logo2.png" alt="" class="h-5 w-5 rounded" />
-            <p class="text-xs text-gray-500"></p>
-          </div>
-          <h3 class="mt-2 font-semibold"></h3>
-          <p class="mt-2 text-sm text-gray-600"></p>
-          <a href="#" class="mt-3 inline-flex text-sm font-semibold text-accent-700 link-underline"></a>
-        </article>
-
-        <article class="rounded-2xl border border-gray-200 p-6 shadow-soft hover:shadow-md transition">
-          <div class="flex items-center gap-2">
-            <img src="assets/images/wasedaai-logo2.png" alt="" class="h-5 w-5 rounded" />
-            <p class="text-xs text-gray-500">
-          </div>
-          <h3 class="mt-2 font-semibold">
-          <p class="mt-2 text-sm text-gray-600"></p>
-          <a href="#" class="mt-3 inline-flex text-sm font-semibold text-accent-700 link-underline"></a>
-        </article>
-      </div>
-    </div>
-  </section>
+  
 
   <!-- お問い合わせ（SNSリンク） -->
 <section id="contact" class="bg-gray-50">
   <div class="mx-auto max-w-6xl px-4 py-16">
     <div class="reveal">
-      <h2 class="text-2xl md:text-3xl font-bold">お問い合わせ</h2>
+      <h2 class="text-2xl md:text-3xl font-bold">SNS・お問い合わせ</h2>
 
       <div class="mt-6 grid gap-4 md:grid-cols-3">
         <!-- X -->
