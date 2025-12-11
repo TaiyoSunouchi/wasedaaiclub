@@ -45,7 +45,7 @@
   <style>
     .fade-in { animation: fadeIn .6s ease both; }
     @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } }
-
+   
     .brand-gradient {
       background: linear-gradient(90deg, #3b82f6, #22d3ee, #fb923c, #f97316, #1d4ed8);
       background-size: 200% 200%;
@@ -228,40 +228,20 @@
 
     <!-- 活動写真スライダー -->
   <section aria-label="活動写真スライダー" class="bg-white border-b border-gray-100">
-    <div class="mx-auto max-w-6xl px-4 py-10 md:py-14">
-      <div class="glass rounded-3xl shadow-soft overflow-hidden border border-white/60 max-w-3xl mx-auto">
-        <div class="relative">
-          <img
-            id="hero-slider-image"
-            src="assets/images/1127活動風景.jpg"
-            alt="早稲田AI研究会の活動風景"
-            class="w-full h-64 md:h-80 object-cover"
-          />
-          <!-- ドットナビゲーション -->
-          <div class="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5">
-            <button
-              type="button"
-              class="w-2.5 h-2.5 rounded-full bg-white/90 opacity-100"
-              data-hero-slide="0"
-              aria-label="活動画像1"
-            ></button>
-            <button
-              type="button"
-              class="w-2.5 h-2.5 rounded-full bg-white/80 opacity-40"
-              data-hero-slide="1"
-              aria-label="活動画像2"
-            ></button>
-            <button
-              type="button"
-              class="w-2.5 h-2.5 rounded-full bg-white/80 opacity-40"
-              data-hero-slide="2"
-              aria-label="活動画像3"
-            ></button>
-          </div>
-        </div>
+  <div class="mx-auto max-w-6xl px-4 py-10 md:py-14">
+    <div class="glass shadow-soft overflow-hidden border border-white/60 max-w-3xl mx-auto">
+
+      <div class="relative">
+        <img
+          id="hero-slider-image"
+          src="assets/images/1127活動風景.jpg"
+          alt="早稲田AI研究会の活動風景"
+          class="w-full h-64 md:h-80 object-cover "
+        />
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
 
   <!-- 早稲田AI研究会について -->
@@ -375,12 +355,14 @@
       <div class="reveal">
         <h2 class="text-2xl md:text-3xl font-bold">イベント予定</h2>
 
+       
+
         <ul class="mt-6 space-y-4">
           <li class="rounded-2xl border border-gray-200 p-5 bg-white shadow-soft hover:shadow-md transition">
             <div class="flex items-center justify-between">
               <div class="space-y-0.5">
                 <p class="font-semibold">第一回 実践型AI駆動開発コンテスト</p>
-                <p class="text-sm text-gray-600">12/14（日）</p>
+                <p class="text-sm text-gray-600">12/14（日）15:00〜</p>
               </div>
             </div>
           </li>
@@ -388,8 +370,8 @@
           <li class="rounded-2xl border border-gray-200 p-5 bg-white shadow-soft hover:shadow-md transition">
             <div class="flex items-center justify-between">
               <div class="space-y-0.5">
-                <p class="font-semibold">勉強会</p>
-                <p class="text-sm text-gray-600">11/27（木）17:00〜18:40 ＠早稲田キャンパス</p>
+                <p class="font-semibold">年末交流会</p>
+                <p class="text-sm text-gray-600">12/23（木）18:00〜 ＠高田馬場</p>
               </div>
             </div>
           </li>
