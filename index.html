@@ -223,7 +223,46 @@
         </div>
       </div>
     </div>
+  
   </section>
+
+    <!-- 活動写真スライダー -->
+  <section aria-label="活動写真スライダー" class="bg-white border-b border-gray-100">
+    <div class="mx-auto max-w-6xl px-4 py-10 md:py-14">
+      <div class="glass rounded-3xl shadow-soft overflow-hidden border border-white/60 max-w-3xl mx-auto">
+        <div class="relative">
+          <img
+            id="hero-slider-image"
+            src="assets/images/1127活動風景.jpg"
+            alt="早稲田AI研究会の活動風景"
+            class="w-full h-64 md:h-80 object-cover"
+          />
+          <!-- ドットナビゲーション -->
+          <div class="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5">
+            <button
+              type="button"
+              class="w-2.5 h-2.5 rounded-full bg-white/90 opacity-100"
+              data-hero-slide="0"
+              aria-label="活動画像1"
+            ></button>
+            <button
+              type="button"
+              class="w-2.5 h-2.5 rounded-full bg-white/80 opacity-40"
+              data-hero-slide="1"
+              aria-label="活動画像2"
+            ></button>
+            <button
+              type="button"
+              class="w-2.5 h-2.5 rounded-full bg-white/80 opacity-40"
+              data-hero-slide="2"
+              aria-label="活動画像3"
+            ></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
 
   <!-- 早稲田AI研究会について -->
   <section id="about" class="mx-auto max-w-6xl px-4 py-16">
@@ -607,6 +646,75 @@
         requestAnimationFrame(() => window.scrollTo(0, 0));
       }
     });
+  </script>
+    <!-- ヒーロー活動画像スライダー -->
+  <script>
+    (function () {
+      // 差し替えたい画像のパスをここに並べる
+      const heroSlides = [
+        'assets/images/1127活動風景.jpg',
+        'assets/images/2024集合.jpg',
+        'assets/images/930活動写真1.jpg',
+      ];
+
+      const imgEl = document.getElementById('hero-slider-image');
+      if (!imgEl) return;
+
+      const dots = document.querySelectorAll('[data-hero-slide]');
+      let current = 0;
+      let timer = null;
+
+      function showSlide(index) {
+        if (!heroSlides.length) return;
+        current = (index + heroSlides.length) % heroSlides.length;
+
+        imgEl.src = heroSlides[current];
+
+        dots.forEach((dot, i) => {
+          if (i === current) {
+            dot.classList.remove('opacity-40');
+            dot.classList.add('opacity-100');
+          } else {
+            dot.classList.remove('opacity-100');
+            dot.classList.add('opacity-40');
+          }
+        });
+      }
+
+      function startAutoPlay() {
+        stopAutoPlay();
+        timer = setInterval(() => {
+          showSlide(current + 1);
+        }, 4000); // 4秒ごとに次の画像へ
+      }
+
+      function stopAutoPlay() {
+        if (timer) {
+          clearInterval(timer);
+          timer = null;
+        }
+      }
+
+      dots.forEach((dot, i) => {
+        dot.addEventListener('click', () => {
+          showSlide(i);
+          startAutoPlay(); // クリック後も自動再生を続ける
+        });
+      });
+
+      // 初期表示
+      showSlide(0);
+      startAutoPlay();
+
+      // タブが非アクティブのときにタイマーを止める（無駄なCPU消費を防ぐ）
+      document.addEventListener('visibilitychange', () => {
+        if (document.hidden) {
+          stopAutoPlay();
+        } else {
+          startAutoPlay();
+        }
+      });
+    })();
   </script>
 
 </body>
