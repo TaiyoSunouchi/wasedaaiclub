@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="ja">
 <head>
@@ -43,6 +44,22 @@
   </script>
 
   <style>
+    /* スプラッシュ画面のフェードアウト */
+    #splash-screen.fade-out {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 1.0s ease, visibility 1.0s ease;
+  }
+
+    /* ロゴのふわっとした表示 */
+    .animate-fade-in-up {
+  animation: fadeInUpSplash 1.2s ease forwards;
+  }
+
+   @keyframes fadeInUpSplash {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
     .fade-in { animation: fadeIn .6s ease both; }
     @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } }
    
@@ -127,6 +144,16 @@
 </head>
 
 <body class="bg-white text-gray-900 antialiased">
+
+  <div id="splash-screen" class="fixed inset-0 z-[100] flex items-center justify-center bg-white">
+  <div class="px-8 text-center">
+    <img
+      src="assets/images/早稲田AI研究会-3.png" 
+      alt="早稲田AI研究会 ロゴ"
+      class="w-64 md:w-[500px] h-auto object-contain animate-fade-in-up"
+    />
+  </div>
+</div>
 
   <!-- ヘッダー -->
   <header class="sticky top-0 z-50 bg-white/70 backdrop-blur border-b border-gray-100">
@@ -250,43 +277,40 @@
       <p class="text-gray-500 text-sm mt-2 font-mono uppercase tracking-widest">About Us</p>
     </div>
       <p class="mt-4 text-gray-700 leading-relaxed max-w-3xl">
-        AIに興味のある学生が集まり、
-        勉強会・プロジェクト開発を通じてAIに対する理解を深めるサークルです。
-        2023年の創設以来、早大生を中心に約250人のメンバーが参加中。<br class="hidden sm:block">
-        初心者から上級者まで文理を問わず、我々と一緒に活動するメンバーを募集しています！！<br class="hidden sm:block">
+        AIに情熱を注ぐ学生が集まり、
+        勉強会・プロジェクト開発を通じてAIに対する理解を深めるサークルです。<br class="hidden sm:block">
                              <br class="hidden sm:block">
         当会では、イベント開催に協賛していただく企業様を募集しております。<br class="hidden sm:block">
         学生向けのAI関連イベントにご関心のある企業様は、ぜひお気軽にお声がけ下さい。<div class="ß"></div>
 
         <br class="hidden sm:block">
       </p>
+<div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
+  <div class="bg-blue-50 border border-accent-100 rounded-3xl p-8 text-center shadow-glowB reveal transition-transform hover:scale-105 duration-300">
+    <div class="text-5xl md:text-6xl font-black mb-2 tracking-tighter text-accent-500">248人</div>
+    <div class="text-lg font-bold mb-4 text-accent-700">会員数</div>
+    <p class="text-sm text-gray-700 leading-relaxed">
+      文理・学年不問。早稲田大学以外の学生や修士・博士課程の学生も多数。
+    </p>
+  </div>
 
-      <div class="mt-8 grid gap-6 md:grid-cols-3">
-        <div class="glass rounded-2xl p-6 shadow-soft">
-          <div class="flex items-center gap-3">
-            <img src="assets/images/wasedaai-logo2.png" alt="" class="h-6 w-6 rounded-md" />
-            <h3 class="font-semibold">活用</h3>
-          </div>
-          <p class="mt-2 text-sm text-gray-600">身近な課題を最新のテクノロジーで解決</p>
-        </div>
+  <div class="bg-blue-50 border border-accent-100 rounded-3xl p-8 text-center shadow-glowB reveal transition-transform hover:scale-105 duration-300" data-sa-delay="2">
+    <div class="text-5xl md:text-6xl font-black mb-2 tracking-tighter text-accent-500">2023年</div>
+    <div class="text-lg font-bold mb-4 text-accent-700">創設</div>
+    <p class="text-sm text-gray-700 leading-relaxed">
+      早稲田の中で最も勢いのあるサークルです。
+    </p>
+  </div>
 
-        <div class="glass rounded-2xl p-6 shadow-soft">
-          <div class="flex items-center gap-3">
-            <img src="assets/images/wasedaai-logo2.png" alt="" class="h-6 w-6 rounded-md" />
-            <h3 class="font-semibold">開発</h3>
-          </div>
-          <p class="mt-2 text-sm text-gray-600">AIの根本原理から最新の生成AI情報まで</p>
-        </div>
+  <div class="bg-blue-50 border border-accent-100 rounded-3xl p-8 text-center shadow-glowB reveal transition-transform hover:scale-105 duration-300" data-sa-delay="3">
+    <div class="text-5xl md:text-6xl font-black mb-2 tracking-tighter text-accent-500">7社</div>
+    <div class="text-lg font-bold mb-4 text-accent-700">輩出したスタートアップ数</div>
+    <p class="text-sm text-gray-700 leading-relaxed">
+      活動やイベントで得た仲間を契機に、資金調達を経て起業した学生も多数。
+    </p>
+  </div>
+</div>
 
-        <div class="glass rounded-2xl p-6 shadow-soft">
-          <div class="flex items-center gap-3">
-            <img src="assets/images/wasedaai-logo2.png" alt="" class="h-6 w-6 rounded-md" />
-            <h3 class="font-semibold">起業</h3>
-          </div>
-          <p class="mt-2 text-sm text-gray-600">AIを活用した新しいビジネスモデルの構築</p>
-        </div>
-      </div>
-    </div>
   </section>
 
   <!-- 活動報告 -->
@@ -350,38 +374,78 @@
 
   
   <!-- 主な活動 -->
- <section id="highlights" class="mx-auto max-w-6xl px-4 py-20">
+<section id="highlights" class="mx-auto max-w-6xl px-4 py-20">
     <div class="reveal">
       <div class="mb-10 text-center md:text-left">
         <h2 class="text-2xl md:text-3xl font-bold tracking-tight">活動内容</h2>
         <p class="text-gray-500 text-sm mt-2 font-mono uppercase tracking-widest">About Activity</p>
       </div>
-        <div class="rounded-[1rem] bg-white p-6 sm:p-8 text-gray-800">
-          <ul class="space-y-2 text-sm md:text-base">
-            <li class="flex items-start gap-2">
-              <img src="assets/images/wasedaai-logo2.png" alt="" class="h-4 w-4 mt-1 rounded" />
-              隔週での勉強会
-            </li>
-            <li class="flex items-start gap-2">
-              <img src="assets/images/wasedaai-logo2.png" alt="" class="h-4 w-4 mt-1 rounded" />
-              早稲田生向けAIツールの開発
-            </li>
-            <li class="flex items-start gap-2">
-              <img src="assets/images/wasedaai-logo2.png" alt="" class="h-4 w-4 mt-1 rounded" />
-              交流会、アイデアソン等のイベント開催
-            </li>
-          </ul>
+
+      <div class="space-y-12">
+        <div class="flex flex-col md:flex-row gap-8 items-center bg-gray-50 rounded-3xl p-6 md:p-10 border border-gray-100">
+          <div class="flex-1 order-2 md:order-1">
+            <div class="flex items-center gap-3 mb-4">
+              <span class="text-2xl font-black text-brand-600 font-mono">01</span>
+              <h3 class="text-2xl font-bold">講座</h3>
+              <span class="text-sm text-gray-500 font-medium bg-white px-3 py-1 rounded-full border border-gray-200">第2火曜・第4木曜</span>
+            </div>
+            <p class="text-gray-700 leading-relaxed">
+              AIの基礎知識から応用例、実装方法まで幅広く学べる講座を提供。
+              対面とオンラインのハイブリッド形式でどこでも学べる。
+              起業家など、外部講師とのコラボ講座も。
+            </p>
+          </div>
+          <div class="flex-1 order-1 md:order-2 w-full aspect-video bg-gray-200 rounded-2xl overflow-hidden shadow-soft">
+           <img src="assets/images/GPTs.png" alt="講座の様子" class="w-full h-full object-cover">
+         </div>
+        </div>
+
+        <div class="flex flex-col md:flex-row gap-8 items-center bg-gray-50 rounded-3xl p-6 md:p-10 border border-gray-100">
+          <div class="flex-1 order-2 md:order-1">
+            <div class="flex items-center gap-3 mb-4">
+              <span class="text-2xl font-black text-brand-600 font-mono">02</span>
+              <h3 class="text-2xl font-bold">交流</h3>
+              <span class="text-sm text-gray-500 font-medium bg-white px-3 py-1 rounded-full border border-gray-200">3か月に1回</span>
+            </div>
+            <p class="text-gray-700 leading-relaxed">
+              AIを用いた趣味・ビジネスや、AI技術に尖った学生や起業家と、
+              食事会やハッカソンを通して、ざっくばらんに交流。
+              他コミュニティや企業との共催も多数。
+            </p>
+          </div>
+         <div class="flex-1 order-1 md:order-2 w-full aspect-video bg-gray-200 rounded-2xl overflow-hidden shadow-soft">
+          <img src="assets/images/秋新歓ピザ会.jpg" alt="講座の様子" class="w-full h-full object-cover">
+         </div>
+        </div>
+
+        <div class="flex flex-col md:flex-row gap-8 items-center bg-gray-50 rounded-3xl p-6 md:p-10 border border-gray-100">
+          <div class="flex-1 order-2 md:order-1">
+            <div class="flex items-center gap-3 mb-4">
+              <span class="text-2xl font-black text-brand-600 font-mono">03</span>
+              <h3 class="text-2xl font-bold">開発</h3>
+              <span class="text-sm text-gray-500 font-medium bg-white px-3 py-1 rounded-full border border-gray-200">3か月に1回</span>
+            </div>
+            <p class="text-gray-700 leading-relaxed">
+              ハッカソンやワークショップにて、ビジネス知識・AI技術をフル活用したプロダクト開発に挑む。
+              開発〜ピッチプレゼンまでの過程で起業家から直接フィードバックをもらえる。
+              過去にはハッカソンを契機に起業した学生も多数。
+            </p>
+          </div>
+          <div class="flex-1 order-1 md:order-2 w-full aspect-video bg-gray-200 rounded-2xl overflow-hidden shadow-soft">
+            <img src="assets/images/dev.png" alt="講座の様子" class="w-full h-full object-cover">
+          </div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- SNS・お問い合わせ -->
-  <section id="contact" class="bg-gray-50">
-    <div class="mx-auto max-w-6xl px-4 py-16">
-      <div class="reveal">
-        <h2 class="text-2xl md:text-3xl font-bold">SNS・お問い合わせ</h2>
-
+<section id="contact" class="mx-auto max-w-6xl px-4 py-20">
+    <div class="reveal">
+      <div class="mb-10 text-center md:text-left">
+         <h2 class="text-2xl md:text-3xl font-bold tracking-tight">お問い合わせ</h2>
+        <p class="text-gray-500 text-sm mt-2 font-mono uppercase tracking-widest">Contact Us</p>
+      </div>
         <div class="mt-6 grid gap-4 md:grid-cols-3">
           <!-- X -->
           <a
@@ -603,9 +667,9 @@
     (function () {
       // 差し替えたい画像のパスをここに並べる
       const heroSlides = [
-        'assets/images/1127活動風景.jpg',
         'assets/images/2024集合.jpg',
         'assets/images/930活動写真1.jpg',
+        'assets/images/1127活動風景.jpg',
       ];
 
       const imgEl = document.getElementById('hero-slider-image');
@@ -667,6 +731,15 @@
       });
     })();
   </script>
-
+  <script>
+    window.addEventListener('load', () => {
+      const splash = document.getElementById('splash-screen');
+      
+      // 1000ms（1秒）表示した後に、フェードアウトを開始する
+      setTimeout(() => {
+        splash.classList.add('fade-out');
+      }, 1800);
+    });
+  </script>
 </body>
 </html>
