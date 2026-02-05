@@ -1,0 +1,380 @@
+
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>理念 | 早稲田AI研究会</title>
+  <meta name="description" content="早稲田AI研究会の理念・ミッション・ビジョン" />
+  <meta property="og:title" content="理念 | 早稲田AI研究会" />
+  <meta property="og:description" content="早稲田AI研究会の理念・ミッション・ビジョン" />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#111827" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="assets/images/wasedaai-logo.png" type="image/png" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'Noto Sans JP', 'system-ui', 'ui-sans-serif', 'Apple Color Emoji'],
+          },
+          colors: {
+            brand:  { 500:'#fb923c', 600:'#f97316', 700:'#ea580c' },
+            accent: { 500:'#3b82f6', 600:'#2563eb', 700:'#1d4ed8' },
+          },
+          boxShadow: {
+            soft: '0 8px 24px rgba(17,24,39,.08)',
+            glowO: '0 8px 30px rgba(234,88,12,.35)',
+            glowB: '0 8px 30px rgba(29,78,216,.35)',
+          },
+        },
+      },
+    }
+  </script>
+
+  <style>
+    .fade-in { animation: fadeIn .6s ease both; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } }
+
+    .brand-gradient {
+      background: linear-gradient(90deg, #3b82f6, #22d3ee, #fb923c, #f97316, #1d4ed8);
+      background-size: 200% 200%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      animation: shift 8s ease-in-out infinite;
+    }
+    @keyframes shift {
+      0% {background-position: 0% 50%}
+      50%{background-position:100% 50%}
+      100%{background-position:0% 50%}
+    }
+
+    .reveal { opacity: 0; transform: translateY(12px); transition: opacity .6s ease, transform .6s ease; }
+    .reveal.show { opacity: 1; transform: translateY(0); }
+
+    .glass {
+      background: rgba(255,255,255,.75);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(148,163,184,.25);
+    }
+
+    .link-underline {
+      background-image: linear-gradient(currentColor,currentColor);
+      background-size: 0% 2px;
+      background-position: 0 100%;
+      background-repeat: no-repeat;
+      transition: background-size .3s;
+    }
+    .link-underline:hover { background-size: 100% 2px; }
+  </style>
+</head>
+
+<body class="bg-white text-gray-900 antialiased">
+
+  <!-- ヘッダー -->
+  <header class="sticky top-0 z-50 bg-white/70 backdrop-blur border-b border-gray-100">
+    <div class="w-full max-w-full px-2">
+      <div class="flex h-20 md:h-28 items-center justify-between py-2">
+        <a href="index.html" class="flex items-center gap-2 md:gap-3 font-semibold min-w-0">
+          <img
+            src="assets/images/wasedaai-logo2.png"
+            alt="Waseda AI Study Group logo"
+            class="h-[4rem] md:h-[5rem] w-auto object-contain shrink-0"
+          />
+          <span class="tracking-tight text-lg md:text-xl whitespace-nowrap">早稲田AI研究会</span>
+        </a>
+
+        <nav class="hidden md:flex items-center gap-6 text-sm">
+          <a href="index.html#about" class="hover:text-brand-600 link-underline">団体紹介</a>
+          <a href="philosophy.html" class="text-brand-600 font-semibold">理念</a>
+          <a href="index.html#reports" class="hover:text-brand-600 link-underline">活動報告</a>
+          <a href="index.html#highlights" class="hover:text-brand-600 link-underline">主な活動</a>
+          <a href="index.html#contact" class="hover:text-brand-600 link-underline">SNS・お問い合わせ</a>
+        </nav>
+
+        <button id="menuBtn" class="md:hidden inline-flex items-center justify-center p-2 rounded-lg border border-gray-200">
+          <span class="sr-only">Open menu</span>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+      </div>
+
+      <!-- モバイルメニュー -->
+      <div id="mobileMenu" class="md:hidden hidden pb-4">
+        <div class="flex flex-col gap-3 text-sm">
+          <a href="index.html#about" class="px-2 py-2 rounded hover:bg-gray-50">団体紹介</a>
+          <a href="philosophy.html" class="px-2 py-2 rounded bg-gray-100 font-semibold">理念</a>
+          <a href="index.html#reports" class="px-2 py-2 rounded hover:bg-gray-50">活動報告</a>
+          <a href="index.html#highlights" class="px-2 py-2 rounded hover:bg-gray-50">主な活動</a>
+          <a href="index.html#contact" class="px-2 py-2 rounded hover:bg-gray-50">SNS・お問い合わせ</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ヒーロー -->
+  <section class="relative overflow-hidden bg-gray-50 border-b border-gray-100">
+    <div class="max-w-6xl mx-auto px-4 py-16 md:py-24">
+      <div class="text-center fade-in">
+        <h1 class="text-3xl md:text-5xl font-extrabold leading-tight">
+          私たちの<span class="brand-gradient">理念</span>
+        </h1>
+        <p class="mt-4 text-gray-600 text-lg">Philosophy</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- AIの特異性と私たちの姿勢 -->
+  <section class="mx-auto max-w-6xl px-4 py-20">
+    <div class="reveal">
+      <div class="max-w-3xl mx-auto">
+        <p class="text-lg md:text-xl text-gray-800 leading-relaxed mb-6">
+          AIは、これまでのあらゆる発明とは決定的に違います。なぜならAIは、単なる道具ではなく、自ら考え、行動する主体になりうるからです。
+        </p>
+        <p class="text-lg md:text-xl text-gray-800 leading-relaxed mb-6">
+          だからこそ私たちは、<span class="font-bold text-accent-700">AIに使われる側ではなく、AIを使う側に立ちます。</span>そして、社会的に大きな価値を生み出せる人材を、AI研究会の活動を通じて育てていきます。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- シンギュラリティ時代 -->
+  <section class="bg-gray-50 border-y border-gray-100">
+    <div class="mx-auto max-w-6xl px-4 py-20">
+      <div class="reveal">
+        <div class="max-w-3xl mx-auto">
+          <p class="text-lg md:text-xl text-gray-800 leading-relaxed mb-6">
+            あらゆる知的活動がAIによって代替されうる時代が来ます。そのときに必要なのは、AIに置き換えられる人間ではなく、<span class="font-bold text-brand-600">そのAIを操る人間</span>です。
+          </p>
+          <p class="text-lg md:text-xl text-gray-800 leading-relaxed">
+            AI研究会は、シンギュラリティ到達後にも価値を生み出し続けられる人材を生み出すコミュニティです。私たちの目的は、<span class="font-bold">根本原理からAIを理解し、AIネイティブを輩出すること</span>です。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AIネイティブとは何か -->
+  <section class="mx-auto max-w-6xl px-4 py-20">
+    <div class="reveal">
+      <div class="mb-12 text-center">
+        <h2 class="text-2xl md:text-3xl font-bold tracking-tight">AIネイティブとは何か</h2>
+        <p class="text-gray-500 text-sm mt-2 font-mono uppercase tracking-widest">AI Native</p>
+      </div>
+
+      <div class="max-w-3xl mx-auto">
+        <p class="text-gray-700 mb-8 text-center">AI研究会が目指すAIネイティブとは、次のような人です。</p>
+
+        <div class="space-y-4">
+          <div class="flex items-start gap-4 bg-white rounded-2xl p-6 shadow-soft">
+            <span class="text-2xl font-black text-accent-600 font-mono">01</span>
+            <p class="text-gray-800 leading-relaxed">
+              AIを前提に、<span class="font-bold">研究・開発・組織運営の型を設計できる人</span>です。
+            </p>
+          </div>
+
+          <div class="flex items-start gap-4 bg-white rounded-2xl p-6 shadow-soft">
+            <span class="text-2xl font-black text-accent-600 font-mono">02</span>
+            <p class="text-gray-800 leading-relaxed">
+              モデルの限界を理解した上で、<span class="font-bold">AIを活用できる人</span>です。
+            </p>
+          </div>
+
+          <div class="flex items-start gap-4 bg-white rounded-2xl p-6 shadow-soft">
+            <span class="text-2xl font-black text-accent-600 font-mono">03</span>
+            <p class="text-gray-800 leading-relaxed">
+              データ収集→学習→運用→改善のループを回しながら、<span class="font-bold">問題解決を図れる人</span>です。
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 根本原理 -->
+  <section class="bg-gray-50 border-y border-gray-100">
+    <div class="mx-auto max-w-6xl px-4 py-20">
+      <div class="reveal">
+        <div class="mb-12 text-center">
+          <h2 class="text-2xl md:text-3xl font-bold tracking-tight">AI研究会で学ぶ「根本原理」</h2>
+          <p class="text-gray-500 text-sm mt-2 font-mono uppercase tracking-widest">Fundamentals</p>
+        </div>
+
+        <div class="max-w-3xl mx-auto">
+          <p class="text-gray-700 mb-8 text-center">
+            私たちは、流行や表面的なテクニックだけで終わりません。<br>
+            AIを根本原理から理解するために、以下を軸に学びます。
+          </p>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="bg-white border border-gray-200 rounded-2xl p-6 text-center shadow-soft">
+              <div class="w-12 h-12 bg-accent-600 rounded-xl flex items-center justify-center mx-auto mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+              </div>
+              <h3 class="font-bold text-lg mb-2">機械学習・深層学習</h3>
+              <p class="text-sm text-gray-600">を学びます</p>
+            </div>
+
+            <div class="bg-white border border-gray-200 rounded-2xl p-6 text-center shadow-soft">
+              <div class="w-12 h-12 bg-accent-600 rounded-xl flex items-center justify-center mx-auto mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                </svg>
+              </div>
+              <h3 class="font-bold text-lg mb-2">基礎となる数学</h3>
+              <p class="text-sm text-gray-600">を学びます</p>
+            </div>
+
+            <div class="bg-white border border-gray-200 rounded-2xl p-6 text-center shadow-soft">
+              <div class="w-12 h-12 bg-accent-600 rounded-xl flex items-center justify-center mx-auto mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                </svg>
+              </div>
+              <h3 class="font-bold text-lg mb-2">AIエンジニアリング</h3>
+              <p class="text-sm text-gray-600">を学びます</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 価値の生み出し方 -->
+  <section class="mx-auto max-w-6xl px-4 py-20">
+    <div class="reveal">
+      <div class="mb-12 text-center">
+        <h2 class="text-2xl md:text-3xl font-bold tracking-tight">価値の生み出し方</h2>
+        <p class="text-gray-500 text-sm mt-2 font-mono uppercase tracking-widest">Creating Value</p>
+      </div>
+
+      <div class="max-w-3xl mx-auto text-center">
+        <p class="text-lg md:text-xl text-gray-800 leading-relaxed">
+          学ぶだけでは終わりません。<br>
+          <span class="font-bold text-brand-600">AIコーディング</span>を通じて、アイデアを形にします。<br>
+          <span class="font-bold text-brand-600">ミニプロジェクト</span>を通して、手を動かしながら価値を生み出します。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 新入生への提供 -->
+  <section class="bg-gray-50 border-y border-gray-100">
+    <div class="mx-auto max-w-6xl px-4 py-20">
+      <div class="reveal">
+        <div class="mb-12 text-center">
+          <h2 class="text-2xl md:text-3xl font-bold tracking-tight">新入生への提供</h2>
+          <p class="text-gray-500 text-sm mt-2 font-mono uppercase tracking-widest">For New Students</p>
+        </div>
+
+        <div class="max-w-3xl mx-auto">
+          <p class="text-lg text-gray-700 leading-relaxed mb-6 text-center">
+            「AIって何？知りたいけど、どこから学べばいいのかわからない」——
+          </p>
+          <p class="text-lg text-gray-800 leading-relaxed mb-6 text-center">
+            そんな新入生に向けて、私たちは<span class="font-bold text-accent-700">学習のロードマップ</span>と<span class="font-bold text-accent-700">仲間</span>を提供します。
+          </p>
+          <p class="text-lg text-gray-800 leading-relaxed text-center">
+            特に、<span class="font-bold">専門が情報系でない人でもAIを学ぶ機会を作ります。</span><br>
+            最初の一歩を、ひとりで迷わせません。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- メンタリング -->
+  <section class="mx-auto max-w-6xl px-4 py-20">
+    <div class="reveal">
+      <div class="mb-12 text-center">
+        <h2 class="text-2xl md:text-3xl font-bold tracking-tight">メンタリング</h2>
+        <p class="text-gray-500 text-sm mt-2 font-mono uppercase tracking-widest">Mentoring</p>
+      </div>
+
+      <div class="max-w-3xl mx-auto text-center">
+        <p class="text-lg md:text-xl text-gray-800 leading-relaxed mb-6">
+          <span class="font-bold text-brand-600">一代前の先輩がメンターになります。</span>
+        </p>
+        <p class="text-lg text-gray-700 leading-relaxed">
+          近い距離の先輩が伴走することで、<br>
+          学びを継続しやすい環境をつくります。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-gray-50 border-t border-gray-100">
+    <div class="mx-auto max-w-6xl px-4 py-20">
+      <div class="reveal text-center">
+        <h2 class="text-2xl md:text-3xl font-bold mb-6">一緒に未来を創りませんか？</h2>
+        <p class="text-gray-700 mb-8 max-w-2xl mx-auto">
+          早稲田AI研究会では、AIに興味を持つすべての学生を歓迎しています。
+          経験は問いません。一緒に学び、成長しましょう。
+        </p>
+        <a
+          href="https://forms.gle/moMq3WuP3r6yc72QA"
+          target="_blank"
+          rel="noopener"
+          class="group inline-block rounded-xl p-[2px] bg-gradient-to-r from-brand-600 to-accent-600 shadow-glowO hover:shadow-glowB transition"
+        >
+          <span class="inline-flex items-center justify-center rounded-[0.75rem] bg-white px-6 py-3 font-semibold text-gray-900 group-hover:bg-gray-50">
+            参加する
+          </span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- フッター -->
+  <footer class="border-t border-gray-200">
+    <div class="mx-auto max-w-6xl px-4 py-8 text-sm text-gray-600">
+      <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+        <p>&copy; <span id="year"></span> 早稲田AI研究会</p>
+        <nav class="flex gap-4">
+          <a href="index.html" class="hover:underline">ホーム</a>
+          <a href="index.html#contact" class="hover:underline">お問い合わせ</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <!-- スクリプト -->
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    menuBtn?.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+
+    // モバイルメニュー内のリンクをクリックしたらメニューを閉じる
+    mobileMenu?.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+    });
+
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('show');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  </script>
+</body>
+</html>

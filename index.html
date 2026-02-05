@@ -99,7 +99,7 @@
     .sa-base {
       opacity: 0;
       transform: translateY(18px) scale(.98);
-      transition: opacity .7s.ease, transform .7s cubic-bezier(.22,.61,.36,1);
+      transition: opacity .7s ease, transform .7s cubic-bezier(.22,.61,.36,1);
       will-change: transform, opacity;
     }
     .sa-in    { opacity: 1; transform: translateY(0) scale(1); }
@@ -159,17 +159,29 @@
   <header class="sticky top-0 z-50 bg-white/70 backdrop-blur border-b border-gray-100">
     <div class="w-full max-w-full px-2">
       <div class="flex h-20 md:h-28 items-center justify-between py-2">
-        <a href="#" class="flex items-center gap-2 md:gap-3 font-semibold min-w-0">
-          <img
-            src="assets/images/wasedaai-logo2.png"
-            alt="Waseda AI Study Group logo"
-            class="h-[4rem] md:h-[5rem] w-auto object-contain shrink-0"
-          />
-          <span class="tracking-tight text-lg md:text-xl whitespace-nowrap">早稲田AI研究会</span>
-        </a>
+        <div class="flex items-center gap-3 md:gap-5">
+          <a href="#" class="flex items-center gap-2 md:gap-3 font-semibold min-w-0">
+            <img
+              src="assets/images/wasedaai-logo2.png"
+              alt="Waseda AI Study Group logo"
+              class="h-[4rem] md:h-[5rem] w-auto object-contain shrink-0"
+            />
+            <span class="tracking-tight text-lg md:text-xl whitespace-nowrap">早稲田AI研究会</span>
+          </a>
+          <a
+            href="philosophy.html"
+            class="group relative inline-flex items-center gap-1.5 rounded-full bg-white px-4 py-2 text-sm font-semibold text-gray-800 border-2 border-accent-500 shadow-soft hover:shadow-glowB hover:border-accent-600 hover:text-accent-700 transition-all duration-300 hover:scale-105"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-accent-500 group-hover:text-accent-600 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+            </svg>
+            <span>理念について</span>
+          </a>
+        </div>
 
         <nav class="hidden md:flex items-center gap-6 text-sm">
           <a href="#about" class="hover:text-brand-600 link-underline">団体紹介</a>
+          <a href="philosophy.html" class="hover:text-brand-600 link-underline">理念</a>
           <a href="#reports" class="hover:text-brand-600 link-underline">活動報告</a>
           <a href="#highlights" class="hover:text-brand-600 link-underline">主な活動</a>
           <a href="#contact" class="hover:text-brand-600 link-underline">SNS・お問い合わせ</a>
@@ -187,6 +199,7 @@
       <div id="mobileMenu" class="md:hidden hidden pb-4">
         <div class="flex flex-col gap-3 text-sm">
           <a href="#about" class="px-2 py-2 rounded hover:bg-gray-50">団体紹介</a>
+          <a href="philosophy.html" class="px-2 py-2 rounded hover:bg-gray-50">理念</a>
           <a href="#reports" class="px-2 py-2 rounded hover:bg-gray-50">活動報告</a>
           <a href="#highlights" class="px-2 py-2 rounded hover:bg-gray-50">主な活動</a>
           <a href="#contact" class="px-2 py-2 rounded hover:bg-gray-50">SNS・お問い合わせ</a>
@@ -377,7 +390,7 @@
             自然言語だけでコードを書けるCursorの紹介と、Google AI Studioを用いたアプリ開発のデモを行いました。各メンバーがオリジナルのアプリを開発し、発表を行いました。
           </p>
         </article>
-
+`
         <article class="sa-y group relative flex flex-col rounded-3xl border border-gray-100 bg-white p-7 shadow-soft hover:shadow-glowO hover:border-brand-500 transition-all duration-300 hover:-translate-y-1 w-full">
           <div class="flex items-center justify-between mb-4">
             <span class="inline-flex items-center rounded-full bg-brand-50 px-3 py-1 text-xs font-semibold text-brand-700">勉強会</span>
@@ -565,6 +578,11 @@
     const menuBtn = document.getElementById('menuBtn');
     const mobileMenu = document.getElementById('mobileMenu');
     menuBtn?.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+
+    // モバイルメニュー内のリンクをクリックしたらメニューを閉じる
+    mobileMenu?.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+    });
 
     const io = new IntersectionObserver((entries) => {
       entries.forEach(e => {
