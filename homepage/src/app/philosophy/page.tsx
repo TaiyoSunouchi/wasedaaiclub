@@ -9,9 +9,9 @@ export const metadata: Metadata = {
 };
 
 const aiNative = [
-  "AIを前提に、研究・開発・組織運営の型を設計できる人です。",
-  "モデルの限界を理解した上で、AIを活用できる人です。",
-  "データ収集→学習→運用→改善のループを回しながら、問題解決を図れる人です。",
+  "AIを前提に、研究・開発・組織運営の型を設計できる人",
+  "モデルの限界を理解した上で、AIを活用できる人",
+  "データ収集→学習→運用→改善のループを回しながら、問題解決を図れる人",
 ];
 
 const fundamentals = [
@@ -44,7 +44,7 @@ export default function PhilosophyPage() {
             <p className="text-lg md:text-xl text-gray-950 leading-relaxed">
               だからこそ私たちは、<br />
               <span className="font-bold text-blue-700">AIに使われる側ではなく、AIを使う側に立ちます。</span><br />
-              そして、社会的に大きな価値を生み出せる人材を生み出していきます。
+              そして、社会的に大きな価値を生み出し続けていきます。
             </p>
           </div>
         </div>
@@ -59,7 +59,7 @@ export default function PhilosophyPage() {
               <span className="font-bold text-orange-600">そのAIを操る人間</span>です。
             </p>
             <p className="text-lg md:text-xl text-gray-950 leading-relaxed">
-              AI研究会は、シンギュラリティ到達後にも価値を生み出し続けられるコミュニティです。<br />私たちの目的は、
+              AI研究会は、シンギュラリティ到達後にも価値を生み出し続けるコミュニティです。<br />私たちの目的は、
               <span className="font-bold">根本原理からAIを理解し、AIネイティブを輩出すること</span>です。
             </p>
           </div>
