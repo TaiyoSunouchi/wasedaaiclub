@@ -305,6 +305,20 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ────────────────────────── Philosophy CTA ────────────────────────── */}
+      <section className="bg-white border-b border-gray-100">
+        <div className="site-container py-14 md:py-20 text-center">
+          <a
+            href="/philosophy"
+            className="group inline-flex items-center gap-3 rounded-2xl px-8 py-5 text-lg font-bold text-white shadow-xl transition-all duration-300 hover:scale-[1.04] hover:shadow-2xl"
+            style={{ background: "linear-gradient(135deg, #3b82f6 0%, #6366f1 50%, #f97316 100%)", backgroundSize: "200% 200%", animation: "brand-shift 6s ease-in-out infinite" }}
+          >
+            <span>私たちの理念を読む</span>
+            <ChevronRight className="size-5 transition-transform duration-300 group-hover:translate-x-1" />
+          </a>
+        </div>
+      </section>
+
       {/* ────────────────────────── Contact ────────────────────────── */}
       <section id="contact" className="bg-gray-50">
         <div className="site-container py-14 md:py-20">
