@@ -12,6 +12,104 @@ import { ChevronRight } from "lucide-react";
 const reports = [
   {
     tag: "勉強会",
+    date: "2026.06.02",
+    title: "AI導入支援の最前線",
+    body: "早稲田キャンパスにて、ゲスト講師を招いた勉強会を開催しました。文系大学生が上場企業のAI案件を複数獲得するまでの軌跡についての講義と、AIによる動画・画像生成やスライド作成の実践パートを行いました。",
+    color: "orange" as const,
+  },
+  {
+    tag: "勉強会",
+    date: "2026.05.26",
+    title: "LLMとAIエージェント入門",
+    body: "早稲田キャンパスにて勉強会を開催しました。AI研でこれから何を学び作っていくかについて話し、AIエージェントを作るために必要な知識について学びました。今後の講義や開発会につなげる内容となりました。",
+    color: "orange" as const,
+  },
+  {
+    tag: "イベント",
+    date: "2026.05.22",
+    title: "会員交流会",
+    body: "理工キャンパスにて会員交流会を開催しました。AI・開発・勉強の話、プチ勉強会、コーディングTips共有、各自作業、雑談など幅広い内容で交流しました。",
+    color: "blue" as const,
+  },
+  {
+    tag: "勉強会",
+    date: "2026.05.19",
+    title: "AIコーディング概論",
+    body: "早稲田キャンパスにて勉強会を開催しました。AI駆動開発の基礎知識として、AIコーディングの概要や各社ツールの比較、実現できることについて解説し、実際にツールを使った体験も行いました。",
+    color: "orange" as const,
+  },
+  {
+    tag: "開発会",
+    date: "2026.05.15",
+    title: "春学期開発会キックオフ",
+    body: "理工キャンパスにて、春学期の開発会キックオフを実施しました。2ヶ月でAIエージェントのプロトタイプを作ることを目標に掲げ、開発会の方向性やAIエージェントの解説、スケジュール確認、開発テーマ決めを行い、開発をスタートしました。",
+    color: "green" as const,
+  },
+  {
+    tag: "イベント",
+    date: "2026.05.12",
+    title: "AIコンシェルジュを作ろう（電通コラボ）",
+    body: "早稲田キャンパスにて、電通様とのコラボ企画を実施しました。プロジェクトの概要説明とアイデア出しを行い、AIに詳しい学生の目線からプロジェクトをより良くするための提案を行いました。",
+    color: "blue" as const,
+  },
+  {
+    tag: "イベント",
+    date: "2026.05.06",
+    title: "新歓BBQ",
+    body: "京王BBQガーデン（新宿）にて新歓BBQを開催しました。研究会の活動や授業、大学生活のことまで、学年を超えて気軽に話せる交流の場となりました。",
+    color: "blue" as const,
+  },
+  {
+    tag: "勉強会",
+    date: "2026.04.30",
+    title: "AIの仕組みを学ぼう 〜深層学習入門〜",
+    body: "理工キャンパスにて勉強会を開催しました。ニューラルネットワークを中心に、AIがどのように学習するのかについて数式を使わずに解説し、最後に簡単な画像認識AIを実際に動かしました。",
+    color: "orange" as const,
+  },
+  {
+    tag: "開発会",
+    date: "2026.04.28",
+    title: "AIアプリ作成体験会",
+    body: "早稲田キャンパスにて開発会を開催しました。AI Studioを使い、自然言語の入力だけでアプリやサイトを作る体験を行いました。コーディング未経験者でも気軽に参加できる内容でした。",
+    color: "green" as const,
+  },
+  {
+    tag: "勉強会",
+    date: "2026.04.21",
+    title: "ローカルLLM入門",
+    body: "早稲田キャンパスにて勉強会を開催しました。ローカルLLMの特徴や使用事例、メリットについて解説し、なぜ今ローカルLLMが注目されているのか、そのポテンシャルについて説明しました。",
+    color: "orange" as const,
+  },
+  {
+    tag: "開発会",
+    date: "2026.04.16",
+    title: "AIコーディング体験会",
+    body: "理工キャンパスにて開発会を開催しました。Google AI Studioを使って、勉強管理アプリやゲーム、Webサイトなど、参加者それぞれがオリジナルのアプリを作成しました。",
+    color: "green" as const,
+  },
+  {
+    tag: "勉強会",
+    date: "2026.04.14",
+    title: "LLM入門（早稲田キャンパス）",
+    body: "早稲田キャンパス11号館にて勉強会を開催しました。4/8に理工キャンパスで実施したLLM入門と同様に、大規模言語モデルの仕組みについて解説しました。",
+    color: "orange" as const,
+  },
+  {
+    tag: "勉強会",
+    date: "2026.04.08",
+    title: "LLM入門（理工キャンパス）",
+    body: "理工キャンパスにて勉強会を開催しました。ChatGPTでお馴染みの大規模言語モデル（LLM）の大まかな仕組みについて、難しい数式を使わずにわかりやすく解説しました。",
+    color: "orange" as const,
+  },
+  {
+    tag: "勉強会",
+    date: "2026.04.07",
+    title: "AI超入門",
+    body: "早稲田キャンパスにて勉強会を開催しました。前半ではAIの基礎（そもそもAIとは何か、その仕組み、なぜ今AIが重要なのか）について解説し、後半では話題のAIツール「Manus」を実際に動かす体験会を実施しました。",
+    color: "orange" as const,
+  },
+  {
+    tag: "勉強会",
     date: "2026.02.10",
     title: "深層学習勉強会",
     body: "2/10に深層学習についての勉強会を開催しました。情報理工学科4年の会員が講師となり、「深層学習 上: 基礎と概念」を読み進めました。ニューラルネットワークに対する理解を深める機会となりました。",
@@ -57,6 +155,13 @@ const reports = [
     date: "2025.11.11",
     title: "定期勉強会：Cursor & AI Studio",
     body: "Cursor・Google AI Studioでアプリ開発をテーマに実施。各メンバーがオリジナルアプリを開発・発表しました。",
+    color: "orange" as const,
+  },
+  {
+    tag: "勉強会",
+    date: "2025.10.14",
+    title: "後期授業を攻略！ズルいAI活用術",
+    body: "NotebookLMやGPTs、GASなどを用いた学習効率化をテーマに4名が会員に向けて発表を行いました。即戦力となるプロンプト術やツール連携について知見を共有しました。",
     color: "orange" as const,
   },
   {
@@ -258,15 +363,29 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             {reports.map((r) => {
-              const isOrange = r.color === "orange";
+              const colorMap = {
+                orange: {
+                  card: "hover:shadow-[0_8px_30px_rgba(234,88,12,.25)] hover:border-orange-300",
+                  badge: "bg-orange-50 text-orange-700 border-orange-200",
+                  title: "group-hover:text-orange-600",
+                },
+                blue: {
+                  card: "hover:shadow-[0_8px_30px_rgba(29,78,216,.2)] hover:border-blue-300",
+                  badge: "bg-blue-50 text-blue-700 border-blue-200",
+                  title: "group-hover:text-blue-600",
+                },
+                green: {
+                  card: "hover:shadow-[0_8px_30px_rgba(22,163,74,.2)] hover:border-green-300",
+                  badge: "bg-green-50 text-green-700 border-green-200",
+                  title: "group-hover:text-green-600",
+                },
+              }[r.color];
               return (
                 <Card
                   key={r.title}
                   className={cn(
                     "group flex flex-col hover:-translate-y-1 transition-all duration-300",
-                    isOrange
-                      ? "hover:shadow-[0_8px_30px_rgba(234,88,12,.25)] hover:border-orange-300"
-                      : "hover:shadow-[0_8px_30px_rgba(29,78,216,.2)] hover:border-blue-300"
+                    colorMap.card
                   )}
                 >
                   <CardHeader className="pb-2">
@@ -274,9 +393,7 @@ export default function Home() {
                       <Badge
                         className={cn(
                           "text-xs font-semibold",
-                          isOrange
-                            ? "bg-orange-50 text-orange-700 border-orange-200"
-                            : "bg-blue-50 text-blue-700 border-blue-200"
+                          colorMap.badge
                         )}
                         variant="outline"
                       >
@@ -287,7 +404,7 @@ export default function Home() {
                     <CardTitle
                       className={cn(
                         "text-base leading-snug transition-colors",
-                        isOrange ? "group-hover:text-orange-600" : "group-hover:text-blue-600"
+                        colorMap.title
                       )}
                     >
                       {r.title}
