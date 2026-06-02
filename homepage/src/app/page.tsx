@@ -16,6 +16,7 @@ const reports = [
     title: "AI導入支援の最前線",
     body: "早稲田キャンパスにて、ゲスト講師を招いた勉強会を開催しました。文系大学生が上場企業のAI案件を複数獲得するまでの軌跡についての講義と、AIによる動画・画像生成やスライド作成の実践パートを行いました。",
     color: "orange" as const,
+    image: "/report-ai-biz.png",
   },
   {
     tag: "勉強会",
@@ -44,11 +45,12 @@ const reports = [
     title: "春学期開発会キックオフ",
     body: "理工キャンパスにて、春学期の開発会キックオフを実施しました。2ヶ月でAIエージェントのプロトタイプを作ることを目標に掲げ、開発会の方向性やAIエージェントの解説、スケジュール確認、開発テーマ決めを行い、開発をスタートしました。",
     color: "green" as const,
+    image: "/report-dev-kickoff.png",
   },
   {
     tag: "イベント",
     date: "2026.05.12",
-    title: "AIコンシェルジュを作ろう（電通コラボ）",
+    title: "AIコンシェルジュを作ろう（電通様コラボ）",
     body: "早稲田キャンパスにて、電通様とのコラボ企画を実施しました。プロジェクトの概要説明とアイデア出しを行い、AIに詳しい学生の目線からプロジェクトをより良くするための提案を行いました。",
     color: "blue" as const,
   },
@@ -58,6 +60,7 @@ const reports = [
     title: "新歓BBQ",
     body: "京王BBQガーデン（新宿）にて新歓BBQを開催しました。研究会の活動や授業、大学生活のことまで、学年を超えて気軽に話せる交流の場となりました。",
     color: "blue" as const,
+    image: "/report-bbq-2.png",
   },
   {
     tag: "勉強会",
@@ -79,6 +82,7 @@ const reports = [
     title: "ローカルLLM入門",
     body: "早稲田キャンパスにて勉強会を開催しました。ローカルLLMの特徴や使用事例、メリットについて解説し、なぜ今ローカルLLMが注目されているのか、そのポテンシャルについて説明しました。",
     color: "orange" as const,
+    image: "/report-local-llm.png",
   },
   {
     tag: "開発会",
@@ -86,6 +90,7 @@ const reports = [
     title: "AIコーディング体験会",
     body: "理工キャンパスにて開発会を開催しました。Google AI Studioを使って、勉強管理アプリやゲーム、Webサイトなど、参加者それぞれがオリジナルのアプリを作成しました。",
     color: "green" as const,
+    image: "/report-ai-coding.png",
   },
   {
     tag: "勉強会",
@@ -107,6 +112,7 @@ const reports = [
     title: "AI超入門",
     body: "早稲田キャンパスにて勉強会を開催しました。前半ではAIの基礎（そもそもAIとは何か、その仕組み、なぜ今AIが重要なのか）について解説し、後半では話題のAIツール「Manus」を実際に動かす体験会を実施しました。",
     color: "orange" as const,
+    image: "/report-ai-intro.png",
   },
   {
     tag: "勉強会",
@@ -121,6 +127,7 @@ const reports = [
     title: "早稲田大学社会人コース（LRC）向け団体紹介",
     body: "1/24に早稲田大学日本橋キャンパスにて、LRCの方々に向けて団体紹介を行いました。生成AIを論文作成にいかに活用するかについての講義を実施。フジテレビの記者の方にも取材いただきました。",
     color: "blue" as const,
+    image: "/report-lrc.jpg",
   },
   {
     tag: "イベント",
@@ -128,6 +135,7 @@ const reports = [
     title: "年末交流会",
     body: "前半ではAI生成画像とリアル画像を見分けるゲームで親睦を深め、後半はLRCの生成AI研究会の方々をお招きし、軽食を囲みながら今年の活動を振り返りました。",
     color: "blue" as const,
+    image: "/report-yearend.jpg",
   },
   {
     tag: "イベント",
@@ -142,6 +150,7 @@ const reports = [
     title: "AWSハッカソン優勝者が伴走するAI開発コンテスト",
     body: "株式会社情報戦略テクノロジー様ご協賛のもと、慶應義塾大学のNeurabit・東京理科大学のSpecTechと共同開催。Cursorを用いた開発コンテストで、AWSハッカソン優勝者からフィードバックをいただきました。",
     color: "blue" as const,
+    image: "/report-aws-hackathon.jpg",
   },
   {
     tag: "勉強会",
@@ -149,6 +158,7 @@ const reports = [
     title: "定期勉強会：Manusで自動動画編集",
     body: "東大大学院に所属する会員が講師となり、AIを用いた動画編集法を紹介。字幕生成やカット編集の自動化により、従来比で圧倒的な時間短縮を実現しました。",
     color: "orange" as const,
+    image: "/report-manus.jpg",
   },
   {
     tag: "勉強会",
@@ -156,6 +166,7 @@ const reports = [
     title: "定期勉強会：Cursor & AI Studio",
     body: "Cursor・Google AI Studioでアプリ開発をテーマに実施。各メンバーがオリジナルアプリを開発・発表しました。",
     color: "orange" as const,
+    image: "/report-cursor-aistudio.jpg",
   },
   {
     tag: "勉強会",
@@ -163,6 +174,7 @@ const reports = [
     title: "後期授業を攻略！ズルいAI活用術",
     body: "NotebookLMやGPTs、GASなどを用いた学習効率化をテーマに4名が会員に向けて発表を行いました。即戦力となるプロンプト術やツール連携について知見を共有しました。",
     color: "orange" as const,
+    image: "/report-ai-study.jpg",
   },
   {
     tag: "イベント",
@@ -170,6 +182,7 @@ const reports = [
     title: "AI Hack Day",
     body: "慶應義塾大学のNeurabit・東京理科大学のSpecTechと共同開催。30名超の学生が参加し、GoogleのAIツールを体験。早稲田AI研究会からは舟橋がNanoBananaの利用法について登壇しました。",
     color: "blue" as const,
+    image: "/report-ai-hackday.jpg",
   },
   {
     tag: "イベント",
@@ -177,6 +190,7 @@ const reports = [
     title: "1億円ビジネスアイデアソン",
     body: "「1億円ビジネスを作ろう」というテーマでアイデアソンを開催し、早大生を中心に30人ほどが参加しました。AIを活用してリサーチやスライド作成を行ったのち、チームごとに事業案の発表を行いました。ゲストとして実業家のけんすうさんとそらさんにお越しいただき、事業案についての鋭いフィードバックをいただきました。",
     color: "blue" as const,
+    image: "/report-ideathon.jpg",
   },
 ];
 
@@ -209,6 +223,70 @@ const activities = [
     imageAlt: "開発の様子",
   },
 ];
+
+/* ── カード描画 ── */
+
+const colorMap = {
+  orange: {
+    card: "hover:shadow-[0_8px_30px_rgba(234,88,12,.25)] hover:border-orange-300",
+    badge: "bg-orange-50 text-orange-700 border-orange-200",
+    title: "group-hover:text-orange-600",
+  },
+  blue: {
+    card: "hover:shadow-[0_8px_30px_rgba(29,78,216,.2)] hover:border-blue-300",
+    badge: "bg-blue-50 text-blue-700 border-blue-200",
+    title: "group-hover:text-blue-600",
+  },
+  green: {
+    card: "hover:shadow-[0_8px_30px_rgba(22,163,74,.2)] hover:border-green-300",
+    badge: "bg-green-50 text-green-700 border-green-200",
+    title: "group-hover:text-green-600",
+  },
+} as const;
+
+function ReportCard({ r }: { r: (typeof reports)[number] }) {
+  const colors = colorMap[r.color];
+  return (
+    <Card
+      className={cn(
+        "group flex flex-col hover:-translate-y-1 transition-all duration-300 overflow-hidden",
+        colors.card
+      )}
+    >
+      {"image" in r && r.image && (
+        <div className="relative aspect-[16/9] w-full">
+          <Image
+            src={r.image}
+            alt={r.title}
+            fill
+            className="object-cover transition-transform duration-300 group-hover:scale-105"
+          />
+        </div>
+      )}
+      <CardHeader className="pb-2">
+        <div className="flex items-center justify-between mb-2">
+          <Badge
+            className={cn("text-xs font-semibold", colors.badge)}
+            variant="outline"
+          >
+            {r.tag}
+          </Badge>
+          <span className="text-xs text-gray-950 font-mono">{r.date}</span>
+        </div>
+        <CardTitle
+          className={cn("text-base leading-snug transition-colors", colors.title)}
+        >
+          {r.title}
+        </CardTitle>
+      </CardHeader>
+      <CardContent>
+        <CardDescription className="text-sm leading-relaxed text-gray-950">
+          {r.body}
+        </CardDescription>
+      </CardContent>
+    </Card>
+  );
+}
 
 /* ── ページ本体 ── */
 
@@ -361,63 +439,18 @@ export default function Home() {
             <p className="text-gray-950 text-xs mt-1 font-mono uppercase tracking-widest">Activity Reports</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-            {reports.map((r) => {
-              const colorMap = {
-                orange: {
-                  card: "hover:shadow-[0_8px_30px_rgba(234,88,12,.25)] hover:border-orange-300",
-                  badge: "bg-orange-50 text-orange-700 border-orange-200",
-                  title: "group-hover:text-orange-600",
-                },
-                blue: {
-                  card: "hover:shadow-[0_8px_30px_rgba(29,78,216,.2)] hover:border-blue-300",
-                  badge: "bg-blue-50 text-blue-700 border-blue-200",
-                  title: "group-hover:text-blue-600",
-                },
-                green: {
-                  card: "hover:shadow-[0_8px_30px_rgba(22,163,74,.2)] hover:border-green-300",
-                  badge: "bg-green-50 text-green-700 border-green-200",
-                  title: "group-hover:text-green-600",
-                },
-              }[r.color];
-              return (
-                <Card
-                  key={r.title}
-                  className={cn(
-                    "group flex flex-col hover:-translate-y-1 transition-all duration-300",
-                    colorMap.card
-                  )}
-                >
-                  <CardHeader className="pb-2">
-                    <div className="flex items-center justify-between mb-2">
-                      <Badge
-                        className={cn(
-                          "text-xs font-semibold",
-                          colorMap.badge
-                        )}
-                        variant="outline"
-                      >
-                        {r.tag}
-                      </Badge>
-                      <span className="text-xs text-gray-950 font-mono">{r.date}</span>
-                    </div>
-                    <CardTitle
-                      className={cn(
-                        "text-base leading-snug transition-colors",
-                        colorMap.title
-                      )}
-                    >
-                      {r.title}
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <CardDescription className="text-sm leading-relaxed text-gray-950">
-                      {r.body}
-                    </CardDescription>
-                  </CardContent>
-                </Card>
-              );
-            })}
+          {/* モバイル: 1カラム */}
+          <div className="md:hidden space-y-5">
+            {reports.map((r) => <ReportCard key={r.title} r={r} />)}
+          </div>
+          {/* デスクトップ: 2カラム（偶数=左、奇数=右で時系列を維持） */}
+          <div className="hidden md:flex gap-5">
+            <div className="flex-1 space-y-5">
+              {reports.filter((_, i) => i % 2 === 0).map((r) => <ReportCard key={r.title} r={r} />)}
+            </div>
+            <div className="flex-1 space-y-5">
+              {reports.filter((_, i) => i % 2 === 1).map((r) => <ReportCard key={r.title} r={r} />)}
+            </div>
           </div>
         </div>
       </section>
