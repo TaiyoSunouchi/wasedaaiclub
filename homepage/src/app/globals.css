@@ -105,20 +105,12 @@ footer.site-footer {
   background: oklch(0.97 0 0);
 }
 
-/* Animated brand gradient */
+/* Brand gradient (orange + blue) */
 .brand-gradient {
-  background: linear-gradient(90deg, #3b82f6, #22d3ee, #fb923c, #f97316, #1d4ed8);
-  background-size: 200% 200%;
+  background: linear-gradient(90deg, #1d4ed8, #3b82f6, #fb923c, #f97316);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  animation: brand-shift 8s ease-in-out infinite;
-}
-
-@keyframes brand-shift {
-  0%   { background-position: 0% 50%; }
-  50%  { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
 }
 
 /* Scroll reveal */
