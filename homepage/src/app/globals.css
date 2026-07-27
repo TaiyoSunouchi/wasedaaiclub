@@ -162,6 +162,13 @@ footer.site-footer {
 }
 
 @layer base {
+  /* Keep every interface element square, including utility-based components. */
+  *,
+  *::before,
+  *::after {
+    border-radius: 0 !important;
+  }
+
   * {
     @apply border-border outline-ring/50;
   }
