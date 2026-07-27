@@ -19,6 +19,11 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "早稲田AI研究会 | Waseda AI Study Group",
   description: "早稲田AI研究会の公式サイト。活動内容、活動報告、お問い合わせ。",
+  icons: {
+    icon: [{ url: "/icon.png?v=20260727", type: "image/png" }],
+    shortcut: "/icon.png?v=20260727",
+    apple: "/icon.png?v=20260727",
+  },
 };
 
 export default function RootLayout({
