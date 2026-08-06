@@ -441,8 +441,6 @@ export default function Home() {
             >
               早稲田大学公式サイトの「早稲田大学公認サークルガイド」でも紹介されています。
             </a>
-            <br className="hidden sm:block" /><br className="hidden sm:block" />
-            当会は、イベント開催・共同プロジェクトに協賛していただける企業を募集しています。<br />学生向けのAI関連イベントにご関心のある企業はお気軽にお声がけください。
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
