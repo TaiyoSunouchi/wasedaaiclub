@@ -453,7 +453,7 @@ export default function Home() {
             </a>
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
               {
                 value: "2023年",
@@ -464,6 +464,11 @@ export default function Home() {
                 value: "7社",
                 label: "輩出したスタートアップ数",
                 sub: "活動やイベントで得た仲間を契機に、資金調達を経て起業した学生も多数",
+              },
+              {
+                value: "70名",
+                label: "所属する学生",
+                sub: "早稲田大学を中心に、多様な学生が所属しています",
               },
             ].map(({ value, label, sub }) => (
               <Card
