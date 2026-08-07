@@ -3,88 +3,13 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { buttonVariants } from "@/lib/button-variants";
 import { cn } from "@/lib/utils";
+import PhotoSlider from "@/components/PhotoSlider";
 import CopyBtn from "@/components/CopyBtn";
 import { ChevronRight } from "lucide-react";
 
 /* ── データ定義 ── */
 
 const reports = [
-  {
-    tag: "勉強会",
-    date: "2026.07.24",
-    title: "LLMの学習方法",
-    body: "早稲田キャンパスにて勉強会を開催しました。事前学習・事後学習を中心に、次単語予測を基盤とするLLMがどのように質問へ答えられるようになるのかをわかりやすく解説しました。",
-    color: "orange" as const,
-  },
-  {
-    tag: "開発会",
-    date: "2026.07.14",
-    title: "Hermes Agent体験会",
-    body: "早稲田キャンパスにて開発会を開催しました。Hermes Agentを実際に使いながら、AIエージェントがツールを利用し、ワークフローを実行する仕組みを学びました。",
-    color: "green" as const,
-  },
-  {
-    tag: "勉強会",
-    date: "2026.07.03",
-    title: "AIコーディング実践講義",
-    body: "西早稲田キャンパスにて勉強会を開催しました。AIに任せてよいこと・任せるべきでないこと、ソフトウェア工学の原則、情報収集の方法など、AIコーディングを実践するための知見を共有しました。",
-    color: "orange" as const,
-    image: "/report-ai-coding-practice.jpg",
-  },
-  {
-    tag: "勉強会",
-    date: "2026.06.26",
-    title: "Transformer入門",
-    body: "早稲田キャンパスにて勉強会を開催しました。ChatGPTやGeminiなどの中核技術であるTransformerについて、Attention機構を中心に、数式を使わずわかりやすく解説しました。",
-    color: "orange" as const,
-    image: "/report-transformer.jpg",
-  },
-  {
-    tag: "開発会",
-    date: "2026.06.23",
-    title: "自分だけのAIエージェントを作ろう",
-    body: "早稲田キャンパスにて開発会を開催しました。これまで学んだツール利用やRAGの知識を生かし、ワークシートで仕様を考えながら、参加者それぞれが自分のAIエージェント作りに取り組みました。",
-    color: "green" as const,
-    image: "/report-build-agent.jpg",
-  },
-  {
-    tag: "開発会",
-    date: "2026.06.19",
-    title: "エージェント×RAG開発会",
-    body: "西早稲田キャンパスにて開発会を開催しました。金融情報のAPIを使ってAIエージェントに外部情報を組み込む体験を行い、各自のエージェントに必要な情報について考えました。",
-    color: "green" as const,
-    image: "/report-agent-rag.jpg",
-  },
-  {
-    tag: "勉強会",
-    date: "2026.06.16",
-    title: "LLMと最新情報の扱い方",
-    body: "早稲田キャンパス3号館406教室にて勉強会を開催しました。LLMがネット上の最新情報を回答に反映させる仕組みについて解説し、Google Colabを使ったワークショップも実施しました。",
-    color: "orange" as const,
-  },
-  {
-    tag: "勉強会",
-    date: "2026.06.12",
-    title: "RAG（検索拡張生成）入門",
-    body: "西早稲田キャンパスにて勉強会を開催しました。LLMが外部情報を検索して回答に活用するRAGについて、キーワード検索や埋め込み検索の仕組みから解説しました。",
-    color: "orange" as const,
-  },
-  {
-    tag: "イベント",
-    date: "2026.06.09",
-    title: "ゲームAI対戦ミニハッカソン",
-    body: "早稲田キャンパスにて、AIエージェントを活用してボードゲームのAIを作るミニハッカソンを開催しました。初心者向け講習会の後、参加者がそれぞれAIのアルゴリズムを構築し、AI同士の対戦で優勝者を決めました。",
-    color: "blue" as const,
-    image: "/report-game-ai-hackathon.jpg",
-  },
-  {
-    tag: "勉強会",
-    date: "2026.06.05",
-    title: "AIエージェントのツール入門",
-    body: "理工キャンパスにて勉強会を開催しました。Web検索や計算などをLLMに行わせる「ツール」の仕組みを解説し、参加者が簡易的なツールを作成して、実際にAIから利用するところまで体験しました。",
-    color: "orange" as const,
-    image: "/report-tools.jpg",
-  },
   {
     tag: "勉強会",
     date: "2026.06.02",
@@ -420,6 +345,13 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ────────────────────────── Photo Slider ────────────────────────── */}
+      <section className="bg-white border-b border-gray-100">
+        <div className="site-container py-10 md:py-14">
+          <PhotoSlider />
+        </div>
+      </section>
+
       {/* ────────────────────────── About ────────────────────────── */}
       <section id="about" className="bg-white border-b border-gray-100">
         <div className="site-container py-14 md:py-20">
@@ -433,6 +365,8 @@ export default function Home() {
             <br className="hidden sm:block" /><br className="hidden sm:block" />
             2026年7月より、早稲田大学公認団体となりました。
             <br className="hidden sm:block" /><br className="hidden sm:block" />
+
+
             <a
               href="https://www.waseda.jp/inst/weekly/circleguide/list/?genre[]=technology"
               target="_blank"
@@ -443,7 +377,7 @@ export default function Home() {
             </a>
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {[
               {
                 value: "2023年",
@@ -454,11 +388,6 @@ export default function Home() {
                 value: "7社",
                 label: "輩出したスタートアップ数",
                 sub: "活動やイベントで得た仲間を契機に、資金調達を経て起業した学生も多数",
-              },
-              {
-                value: "70名",
-                label: "所属する学生",
-                sub: "早稲田大学を中心に、多様な学生が所属しています",
               },
             ].map(({ value, label, sub }) => (
               <Card

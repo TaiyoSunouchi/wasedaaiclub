@@ -20,9 +20,9 @@ export const metadata: Metadata = {
   title: "早稲田AI研究会 | Waseda AI Study Group",
   description: "早稲田AI研究会の公式サイト。活動内容、活動報告、お問い合わせ。",
   icons: {
-    icon: [{ url: "/icon.png?v=20260727", type: "image/png" }],
-    shortcut: "/icon.png?v=20260727",
-    apple: "/icon.png?v=20260727",
+    icon: [{ url: "/icon.png?v=20260802", type: "image/png" }],
+    shortcut: "/icon.png?v=20260802",
+    apple: "/wasedaai-logo2.png?v=20260802",
   },
 };
 
