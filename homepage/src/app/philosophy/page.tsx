@@ -178,6 +178,10 @@ export default function PhilosophyPage() {
                 </div>
               ))}
             </div>
+
+            <p className="mt-8 rounded-2xl border border-blue-200 bg-blue-50 px-5 py-4 text-center font-semibold text-blue-900">
+              AI研究会では、①研究と②エンジニアリングにフォーカスしています。
+            </p>
           </div>
         </div>
       </section>

@@ -254,14 +254,6 @@ const reports = [
   },
   {
     tag: "イベント",
-    date: "2025.10.12",
-    title: "AI Hack Day",
-    body: "慶應義塾大学のNeurabit・東京理科大学のSpecTechと共同開催。30名超の学生が参加し、GoogleのAIツールを体験。早稲田AI研究会からは舟橋がNanoBananaの利用法について登壇しました。",
-    color: "blue" as const,
-    image: "/report-ai-hackday.jpg",
-  },
-  {
-    tag: "イベント",
     date: "2025.09.30",
     title: "1億円ビジネスアイデアソン",
     body: "「1億円ビジネスを作ろう」というテーマでアイデアソンを開催し、早大生を中心に30人ほどが参加しました。AIを活用してリサーチやスライド作成を行ったのち、チームごとに事業案の発表を行いました。ゲストとして実業家のけんすうさんとそらさんにお越しいただき、事業案についての鋭いフィードバックをいただきました。",
@@ -453,7 +445,7 @@ export default function Home() {
             </a>
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               {
                 value: "2023年",
@@ -468,7 +460,15 @@ export default function Home() {
               {
                 value: "70名",
                 label: "所属する学生",
-                sub: "早稲田大学を中心に、多様な学生が所属しています",
+                sub: <>
+                  早稲田大学を中心に、多様な学生が所属しています。<br />
+                  2026年度は50名以上が入会しました。
+                </>,
+              },
+              {
+                value: "10学部以上",
+                label: "会員の学部",
+                sub: "基幹理工学部、法学部、商学部、政治経済学部、文学部など、多様な学生が参加しています。",
               },
             ].map(({ value, label, sub }) => (
               <Card
