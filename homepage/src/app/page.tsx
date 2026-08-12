@@ -445,7 +445,7 @@ export default function Home() {
             </a>
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
             {[
               {
                 value: "2023年",
@@ -466,7 +466,14 @@ export default function Home() {
                 </>,
               },
               {
-                value: "10学部以上",
+                value: "250名以上",
+                label: "累計会員数",
+                sub: "2023年の創設以来、250名以上の学生が参加しています。",
+              },
+              {
+                value: <>
+                  10学部<span className="ml-1 text-2xl md:text-3xl">以上</span>
+                </>,
                 label: "会員の学部",
                 sub: "基幹理工学部、法学部、商学部、政治経済学部、文学部など、多様な学生が参加しています。",
               },
