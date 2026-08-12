@@ -466,7 +466,9 @@ export default function Home() {
                 </>,
               },
               {
-                value: "250名以上",
+                value: <>
+                  250名<span className="ml-1 text-2xl md:text-3xl">以上</span>
+                </>,
                 label: "累計会員数",
                 sub: "2023年の創設以来、250名以上の学生が参加しています。",
               },
