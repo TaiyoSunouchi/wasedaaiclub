@@ -11,6 +11,13 @@ import { ChevronRight } from "lucide-react";
 
 const reports = [
   {
+    tag: "イベント",
+    date: "2026.09.25",
+    title: "AI研サッカー交流会",
+    body: "AI研究会のメンバーでサッカーを行いました。久しぶりに体を動かしながら、メンバー同士で楽しく交流を深めることができました。",
+    color: "blue" as const,
+  },
+  {
     tag: "勉強会",
     date: "2026.08.07",
     title: "AIエージェントの評価・ベンチマーク（with 東大AI研究会）",
