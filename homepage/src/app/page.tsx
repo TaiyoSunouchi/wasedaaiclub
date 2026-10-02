@@ -12,6 +12,14 @@ import { ChevronRight } from "lucide-react";
 const reports = [
   {
     tag: "イベント",
+    date: "2026.09.30",
+    title: "東大AI研究会との合同講座・交流イベント",
+    body: "東大AI研究会と合同で、AI・テクノロジー分野への理解を深める講座・交流イベントを開催しました。「論文の読み方講座」やTransformerの基礎となった論文『Attention Is All You Need』の解説、最先端のAIエージェント開発に関する講義を実施しました。最新技術や研究に触れるだけでなく、大学や所属の垣根を越えて参加者同士が交流する貴重な機会となりました。",
+    color: "blue" as const,
+    image: "/report-utokyo-joint-event.jpg",
+  },
+  {
+    tag: "イベント",
     date: "2026.09.25",
     title: "AI研サッカー交流会",
     body: "AI研究会のメンバーでサッカーを行いました。久しぶりに体を動かしながら、メンバー同士で楽しく交流を深めることができました。",
